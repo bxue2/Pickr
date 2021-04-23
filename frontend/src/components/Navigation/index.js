@@ -3,12 +3,12 @@ import {NavLink} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import ProfileButton from './ProfileButton';
 
-const Navigation = () => {
+const Navigation = ({isLoaded}) => {
     let sessionUser = useSelector(state => state.session.user);
     let sessionLinks;
     if(sessionUser){
         sessionLinks = (
-            <ProfileButton />
+            <ProfileButton user={sessionUser}/>
         )
     } else {
         sessionLinks = (
@@ -27,7 +27,7 @@ const Navigation = () => {
             <li>
                 <NavLink exact to="/">Home</NavLink>
             </li>
-            {}
+            {isLoaded && sessionLinks}
         </ul>
     )
 }

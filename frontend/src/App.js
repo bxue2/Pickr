@@ -4,6 +4,7 @@ import LoginFormPage from './components/LoginFormPage'
 import SignUpFormPage from './components/SignUpFormPage'
 import {useDispatch} from 'react-redux';
 import * as sessionActions from './store/session'
+import Navigation from './components/Navigation';
 
 function App() {
   const dispatch = useDispatch();
@@ -14,18 +15,24 @@ function App() {
     .then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  return isLoaded && (
-    <Switch>
-      <Route path="/login">
-        <LoginFormPage />
-      </Route>
-      <Route path="/signup">
-        <SignUpFormPage />
-      </Route>
-      <Route>
-       <h1>Hello from App</h1>
-      </Route>
-    </Switch>
+  return (
+    <>
+      <Navigation isLoaded={isLoaded}/>
+      {isLoaded && (
+      <Switch>
+        <Route path="/login">
+          <LoginFormPage />
+        </Route>
+        <Route path="/signup">
+          <SignUpFormPage />
+        </Route>
+        <Route>
+        <h1>Hello from App</h1>
+        </Route>
+      </Switch>
+
+      )}
+    </>
   );
 }
 
