@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage'
+import SignUpFormPage from './components/SignUpFormPage'
 import {useDispatch} from 'react-redux';
 import * as sessionActions from './store/session'
 
@@ -11,12 +12,15 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser())
     .then(() => setIsLoaded(true));
-  }, []);
+  }, [dispatch]);
 
   return isLoaded && (
     <Switch>
       <Route path="/login">
         <LoginFormPage />
+      </Route>
+      <Route path="/signup">
+        <SignUpFormPage />
       </Route>
       <Route>
        <h1>Hello from App</h1>
