@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
+import './LoginForm.css'
 
 const LoginFormPage = () => {
     const [credential, setCredential] = useState("");
@@ -12,7 +13,12 @@ const LoginFormPage = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        return dispatch(sessionActions.setUser({credential, password}));
+        setErrors([]);
+        return dispatch(sessionActions.loginUser({credential, password}))
+        .catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors);
+          });
     }
 
     if(sessionUser){
@@ -24,22 +30,27 @@ const LoginFormPage = () => {
     return (
         <div className="input-form">
             <form onSubmit={submitHandler}>
-                <label for="credential">Username/Email: </label>
-                <input
-                    type="text"
-                    id="credential"
-                    value={credential}
-                    onChange={(e) => setCredential(e.target.value)}
-                    required
-                />
-                <label for="password">Password: </label>
-                <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
+                <ul>
+                    {errors.map( (error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+                <label>
+                    Username/Email:
+                    <input
+                        type="text"
+                        value={credential}
+                        onChange={(e) => setCredential(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    Password:
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </label>
                 <button type="submit">Log In</button>
             </form>
         </div>
