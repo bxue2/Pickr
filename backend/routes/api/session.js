@@ -30,7 +30,7 @@ router.post(
     }),
   );
 
-  // Log out
+// Log out
 router.delete(
     '/',
     (_req, res) => {
@@ -38,6 +38,5 @@ router.delete(
       return res.json({ message: 'success' });
     }
   );
-
 
 module.exports = router;
