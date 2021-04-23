@@ -34,7 +34,8 @@ const ProfileButton = ( {user} ) => {
     return (
         <>
             <button onClick={openMenu}>
-                <i className="address-card"></i>
+                <i className="far fa-address-card" />
+                Profile
             </button>
             {showMenu && (
                 <div className="nav_profile-menu">
