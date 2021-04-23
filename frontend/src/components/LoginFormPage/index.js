@@ -1,16 +1,24 @@
 import React, {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import * as sessionActions from '../../store/session';
 
 const LoginFormPage = () => {
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
     const sessionUser = useSelector(state => state.session.user)
+    const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
 
     const submitHandler = (e) => {
         e.preventDefault();
+        return dispatch(sessionActions.setUser({credential, password}));
+    }
 
+    if(sessionUser){
+        return (
+            <Redirect to="/"/>
+        )
     }
 
     return (
