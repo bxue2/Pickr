@@ -1,5 +1,7 @@
 import { createContext, useRef, useState, useEffect, useContext } from 'react';
 import ReactDOM from 'react-dom';
+import './Modal.css'
+
 export const ModalContext = createContext();
 
 export function ModalProvider(props){
@@ -19,7 +21,7 @@ export function ModalProvider(props){
     )
 }
 
-function Modal({onClose, children}){
+export function Modal({onClose, children}){
     const modalNode = useContext(ModalContext.value);
     if(!modalNode){
         return null;
