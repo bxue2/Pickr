@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';  //useSelector
+// import { Redirect } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 import './LoginForm.css'
 
-const LoginFormPage = () => {
+const LoginForm = () => {
     const [credential, setCredential] = useState("");
     const [password, setPassword] = useState("");
-    const sessionUser = useSelector(state => state.session.user)
+    // const sessionUser = useSelector(state => state.session.user)
     const [errors, setErrors] = useState([]);
     const dispatch = useDispatch();
 
@@ -21,11 +21,11 @@ const LoginFormPage = () => {
           });
     }
 
-    if(sessionUser){
-        return (
-            <Redirect to="/"/>
-        )
-    }
+    // if(sessionUser){
+    //     return (
+    //         <Redirect to="/"/>
+    //     )
+    // }
 
     return (
         <div className="input-form">
@@ -57,4 +57,4 @@ const LoginFormPage = () => {
     )
 }
 
-export default LoginFormPage;
+export default LoginForm;
