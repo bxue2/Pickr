@@ -4,7 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING
   }, {});
   Tag.associate = function(models) {
-    // associations can be defined here
+    const pictureTagMapping = {
+      through: 'PictureTag',
+      otherKey: 'picture_id',
+      foreignKey: 'tag_id'
+    }
+    Tag.belongsToMany(models.Picture, pictureTagMapping);
   };
   return Tag;
 };
