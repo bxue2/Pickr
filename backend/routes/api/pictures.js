@@ -14,7 +14,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const {pictureid} = req.params;
     let picture = await Picture.findByPk(pictureid);
-    return res.json({picture})
+    return res.json({name: picture.name, description: picture.description, image_url:picture.image_url})
   })
 )
 

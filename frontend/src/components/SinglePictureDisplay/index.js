@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import { useHistory, useParams } from 'react-router';
 import {csrfFetch} from '../../store/csrf'
+import './SinglePictureDisplay.css'
 
-const SinglePicturePage = () => {
+const SinglePictureDisplay = () => {
     let sessionUser = useSelector(state => state.session.user)
     let [imageUrl, setImageUrl] = useState('');
     let [name, setName] = useState('');
@@ -14,11 +15,12 @@ const SinglePicturePage = () => {
     useEffect(() => {
         async function fetchData(){
             let response = await csrfFetch(`/api/pictures/${pictureid}`);
-            let { picture } = response;
-            setImageUrl(picture.image_url);
-            setName(picture.name);
-            setDescription(picture.description);
+            let data = await response.json();
+            setImageUrl(data.image_url);
+            setName(data.name);
+            setDescription(data.description);
         }
+        fetchData();
     }, [])
 
 
@@ -31,12 +33,16 @@ const SinglePicturePage = () => {
     }
     return (
         <>
-            <div className='img-container'>
-                <img alt="image not found" src={imageUrl}></img>
-            </div>
-            <button onClick={deletePicture}>Delete</button>
+            {imageUrl && (
+            <>
+                <div className='img-container'>
+                    <img alt="image not found" src={imageUrl}></img>
+                </div>
+                <button onClick={deletePicture}>Delete</button>
+            </>
+            )}
         </>
     )
 }
 
-export default SinglePicturePage;
+export default SinglePictureDisplay;

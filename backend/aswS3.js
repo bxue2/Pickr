@@ -39,9 +39,11 @@ const multiplePublicFileUpload = async (files) => {
 };
 
 const singlePublicFileDelete = async (fileUrl) => {
+  let splitUrl = fileUrl.split('/');
+  let fileKey = splitUrl[splitUrl.length - 1];
   var params = {
     Bucket: NAME_OF_BUCKET,
-    Key: fileUrl
+    Key: fileKey
    };
    let success = true;
    s3.deleteObject(params, function(err, data) {

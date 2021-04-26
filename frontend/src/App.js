@@ -6,7 +6,7 @@ import {useDispatch} from 'react-redux';
 import * as sessionActions from './store/session'
 import Navigation from './components/Navigation';
 import UploadImagePage from './components/UploadImagePage';
-import SinglePicturePage from './components/SinglePicturePage';
+import SinglePictureDisplay from './components/SinglePictureDisplay';
 
 function App() {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ function App() {
           Pictures
         </Route>
         <Route path="/pictures/:pictureid">
-          <SinglePicturePage />
+          <SinglePictureDisplay />
         </Route>
         <Route exact path="/signup">
           <SignUpFormPage />
