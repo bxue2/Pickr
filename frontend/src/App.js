@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import {Route, Switch} from 'react-router-dom';
-import LoginFormPage from './components/LoginFormModal'
+// import LoginFormPage from './components/LoginFormModal'
 import SignUpFormPage from './components/SignUpFormPage'
 import {useDispatch} from 'react-redux';
 import * as sessionActions from './store/session'
 import Navigation from './components/Navigation';
+import UploadImagePage from './components/UploadImagePage';
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +26,9 @@ function App() {
         </Route> */}
         <Route path="/signup">
           <SignUpFormPage />
+        </Route>
+        <Route path="/upload-image">
+          <UploadImagePage />
         </Route>
         <Route>
         <h1>Hello from App</h1>
