@@ -4,7 +4,7 @@ Pickr (name pending) is an image hosting/viewing website allowing users to uploa
 
 ### Heroku Link: 
 
-### Documentation: 
+### Documentation: https://github.com/bxue2/Pickr/wiki
 
 ### Features:
 - Login/Sign up users
