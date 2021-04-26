@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
-import { Redirect } from 'react-router';
+import { Redirect, useHistory } from 'react-router';
 import {csrfFetch} from '../../store/csrf'
 
 import './UploadImagePage.css';
@@ -9,6 +9,7 @@ const UploadImagePage = () => {
     let [name, setName] = useState('');
     let [description, setDescription] = useState('');
     let sessionUser = useSelector(state => state.session.user)
+    let history = useHistory();
 
     const setImage = (e) => {
         setImageFile(e.target.files[0]);
@@ -20,18 +21,16 @@ const UploadImagePage = () => {
         formData.append('name', name);
         formData.append('description', description);
         formData.append('file', imageFile);
-        let response = await csrfFetch('/api/pictures', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-            body: formData
-        })
-        const data = await response.json();
-
-        return (
-            <Redirect to="/" />
-        )
+        // let response = await csrfFetch('/api/pictures', {
+        //     method: 'POST',
+        //     headers: {
+        //         "Content-Type": "multipart/form-data",
+        //     },
+        //     body: formData
+        // })
+        // const data = await response.json();
+        console.log(imageFile.name);
+        history.push('/');
     }
 
     return (
@@ -54,7 +53,7 @@ const UploadImagePage = () => {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}/>
                 </label>
-                <button type="submit">Upload Image</button>
+                <button type="submit" accept='img/jpeg, img/png'>Upload Image</button>
             </form>
 
         </>
