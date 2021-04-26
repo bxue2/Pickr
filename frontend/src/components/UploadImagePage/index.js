@@ -20,7 +20,7 @@ const UploadImagePage = () => {
         formData.append('name', name);
         formData.append('description', description);
         formData.append('file', imageFile);
-        let response = await csrfFetch('/pictures', {
+        let response = await csrfFetch('/api/pictures', {
             method: 'POST',
             headers: {
                 "Content-Type": "multipart/form-data",

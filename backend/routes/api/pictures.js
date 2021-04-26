@@ -8,7 +8,7 @@ const {singlePublicFileUpload, singleMulterUpload} = require('../../aswS3');
 
 const router = express.Router();
 
-// POST /pictures, uploads image to aws
+// POST /api/pictures, uploads image to aws
 router.post(
     "/",
     requireAuth,
