@@ -7,6 +7,9 @@ const cookieParser = require('cookie-parser');
 const { ValidationError } = require('sequelize');
 const routes = require('./routes');
 
+//AWS
+const bodyParser = require("body-parser");
+
 const { environment } = require('./config');
 const isProduction = environment === 'production';
 
@@ -14,7 +17,9 @@ const app = express();
 
 app.use(morgan('dev'));
 app.use(cookieParser());
-app.use(express.json());
+// app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 //Security Middleware
 //Only use CORS in development
