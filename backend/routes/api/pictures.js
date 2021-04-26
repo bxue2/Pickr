@@ -14,7 +14,8 @@ router.post(
     requireAuth,
     singleMulterUpload("image"),
     asyncHandler(async (req, res) => {
-      const { user, name, description } = req;
+      const { user } = req;
+      const { name, description } = req.body;
       const imageUrl = await singlePublicFileUpload(req.file);
       Picture.uploadImage(name, description, imageUrl, user.id)
       return res.json({
