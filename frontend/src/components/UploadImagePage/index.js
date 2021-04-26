@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {useSelector} from 'react-redux';
-import { Redirect, useHistory } from 'react-router';
+// import {useSelector} from 'react-redux';
+import { useHistory } from 'react-router';
 import {csrfFetch} from '../../store/csrf'
 
 import './UploadImagePage.css';
@@ -8,7 +8,7 @@ const UploadImagePage = () => {
     let [imageFile, setImageFile] = useState('');
     let [name, setName] = useState('');
     let [description, setDescription] = useState('');
-    let sessionUser = useSelector(state => state.session.user)
+    // let sessionUser = useSelector(state => state.session.user)
     let history = useHistory();
 
     const setImage = (e) => {

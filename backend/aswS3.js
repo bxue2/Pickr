@@ -38,6 +38,29 @@ const multiplePublicFileUpload = async (files) => {
   );
 };
 
+const singlePublicFileDelete = async (fileUrl) => {
+  var params = {
+    Bucket: NAME_OF_BUCKET,
+    Key: fileUrl
+   };
+   let success = true;
+   s3.deleteObject(params, function(err, data) {
+     if (err) {
+       console.log(err, err.stack); // an error occurred
+       success= false;
+     }
+      else{
+        console.log(data);           // successful response
+       }
+     /*
+     data = {
+     }
+     */
+  });
+  return success;
+};
+
+
 // --------------------------- Prviate UPLOAD ------------------------
 
 const singlePrivateFileUpload = async (file) => {
@@ -97,4 +120,5 @@ module.exports = {
   retrievePrivateFile,
   singleMulterUpload,
   multipleMulterUpload,
+  singlePublicFileDelete
 };

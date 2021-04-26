@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux';
 import * as sessionActions from './store/session'
 import Navigation from './components/Navigation';
 import UploadImagePage from './components/UploadImagePage';
+import SinglePicturePage from './components/SinglePicturePage';
 
 function App() {
   const dispatch = useDispatch();
@@ -24,12 +25,19 @@ function App() {
         {/* <Route path="/login">
           <LoginFormPage />
         </Route> */}
-        <Route path="/signup">
+        <Route exact path="/pictures">
+          Pictures
+        </Route>
+        <Route path="/pictures/:pictureid">
+          <SinglePicturePage />
+        </Route>
+        <Route exact path="/signup">
           <SignUpFormPage />
         </Route>
-        <Route path="/upload-image">
+        <Route exact path="/upload-image">
           <UploadImagePage />
         </Route>
+
         <Route>
         <h1>Hello from App</h1>
         </Route>
