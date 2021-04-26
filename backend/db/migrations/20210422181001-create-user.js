@@ -10,17 +10,17 @@ module.exports = {
       },
       username: {
         type: Sequelize.STRING(30),
-        allowNull: true,
+        allowNull: false,
         unique: true
       },
       email: {
         type: Sequelize.STRING(256),
-        allowNull: true,
+        allowNull: false,
         unique: true
       },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
-        allowNull: true
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
