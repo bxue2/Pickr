@@ -32,7 +32,7 @@ const SinglePicturePage = () => {
     return (
         <>
             <div className='img-container'>
-                <img alt="test" src="https://pickrdb.s3.amazonaws.com/1619473882134.JPG"></img>
+                <img alt="image not found" src={imageUrl}></img>
             </div>
             <button onClick={deletePicture}>Delete</button>
         </>
