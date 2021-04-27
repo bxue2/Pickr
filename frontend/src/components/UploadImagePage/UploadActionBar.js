@@ -1,5 +1,9 @@
 
-const UploadActionBar = ({pictures, setPictures}) => {
+const UploadActionBar = (props) => {
+
+    const addImages = (e) => {
+        props.setImageFiles([...props.imageFiles, ...e.target.files]);
+    }
     return (
         <div className='upload-action-bar'>
             <ul>
@@ -10,7 +14,7 @@ const UploadActionBar = ({pictures, setPictures}) => {
                     </button>
                     <input type='file'></input>
                 </li>
-                {pictures.length > 0 && (
+                {props.imageFiles.length > 0 && (
                     <>
                         <li>
                             Remove
