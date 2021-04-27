@@ -34,12 +34,18 @@ const Navigation = ({isLoaded}) => {
         );
     }
     return (
-        <ul className='header-bar'>
-            <li>
-                <NavLink exact to="/">Home</NavLink>
-            </li>
-            {isLoaded && sessionLinks}
-        </ul>
+        <div className='header-bar'>
+            <ul className='header-bar-left'>
+                <li>
+                    <NavLink exact to="/">Home</NavLink>
+                </li>
+
+            </ul>
+            <ul className='header-bar-right'>
+                {isLoaded && sessionLinks}
+            </ul>
+        </div>
+
     )
 }
 

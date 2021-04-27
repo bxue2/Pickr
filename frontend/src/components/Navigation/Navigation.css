@@ -1,9 +1,20 @@
 .header-bar{
+    position: sticky;
+    top: 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     list-style-type: none;
     height: 60px;
+    width: 100%;
+    background-color: white;
+}
+
+.header-bar-left{
+    justify-self: flex-start;
+}
+
+.header-bar-right{
+    justify-self: flex-end;
 }
 
 .nav_profile-menu {

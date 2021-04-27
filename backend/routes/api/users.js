@@ -42,7 +42,6 @@ router.get(
       },
     ]
     });
-    console.log(user.toJSON())
     return res.json(user.toJSON());
   }
 ));
