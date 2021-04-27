@@ -18,7 +18,7 @@ router.get(
   })
 )
 
-// DELETE /api/pictures
+// DELETE /api/pictures/:pictureid
 router.delete(
   "/:pictureid",
   requireAuth,
@@ -34,6 +34,27 @@ router.delete(
       return res.status(200).send({
         message: 'Successfully deleted image.'
       })
+    }
+    else{
+      return res.status(401).send({
+        message: 'Current User does not own this image.'
+     });
+    }
+  })
+)
+
+// PATCH /api/pictures/:pictureid
+router.patch(
+  "/:pictureid",
+  requireAuth,
+  asyncHandler(async (req, res) => {
+    const {pictureid} = req.params;
+    const {user} = req;
+    const {name, description} = req.body;
+    let pic = await Picture.findByPk(pictureid);
+    if(pic.user_id === user.id){
+      await pic.update({name, description})
+      return res.json({name: pic.name, description: pic.description, image_url:pic.image_url})
     }
     else{
       return res.status(401).send({
