@@ -45,6 +45,7 @@ const singlePublicFileDelete = async (fileUrl) => {
     Bucket: NAME_OF_BUCKET,
     Key: fileKey
    };
+   console.log("File key: ", fileKey);
    let success = true;
    s3.deleteObject(params, function(err, data) {
      if (err) {
@@ -52,7 +53,7 @@ const singlePublicFileDelete = async (fileUrl) => {
        success= false;
      }
       else{
-        console.log(data);           // successful response
+        console.log("Data: ", data);           // successful response
        }
      /*
      data = {
