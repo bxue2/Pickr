@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Picture } = require('../../db/models');
+const { User, Picture, Album } = require('../../db/models');
 
 const router = express.Router();
 
@@ -34,10 +34,15 @@ router.get(
   asyncHandler(async (req, res) => {
     const { userid } = req.params;
     let user = await User.findByPk(userid, {
-      include:{
+      include:[{
         model: Picture
-      }
+      },
+      {
+        model: Album
+      },
+    ]
     });
+    console.log(user.toJSON())
     return res.json(user.toJSON());
   }
 ));
