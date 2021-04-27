@@ -6,16 +6,32 @@
 
 .profile-nav-bar{
     width: 100%;
-    height: 100px;
-}
-
-.profile-nav-bar_list{
+    height: 40px;
     display: flex;
     align-items: center;
-    list-style-type: none;
     background-color: rgba(0, 0, 0, 0.2);
 }
 
+.profile-nav-bar_list{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
 .profile-nav-bar_list li{
-    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-nav-bar_list li div{
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.profile-nav-bar_list li div.active{
+    border-bottom: 4px solid rgba(65, 61, 255, 0.8);
 }
