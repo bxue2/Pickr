@@ -41,12 +41,19 @@ router.get(
   asyncHandler(async (req, res) => {
     const {pictureid} = req.params;
     let picture = await Picture.findByPk(pictureid);
-    return res.json({
-      name: picture.name,
-      description: picture.description,
-      image_url:picture.image_url,
-      user_id: picture.user_id
-    })
+    if(picture){
+      return res.json({
+        name: picture.name,
+        description: picture.description,
+        image_url:picture.image_url,
+        user_id: picture.user_id
+      })
+    } else{
+      return res.status(400).send({
+        message: 'Picture not found.'
+     });
+    }
+
   })
 )
 
@@ -58,7 +65,7 @@ router.delete(
     const {pictureid} = req.params;
     const {user} = req;
     let pic = await Picture.findByPk(pictureid);
-    if(pic.user_id === user.id){
+    if(pic && pic.user_id === user.id){
       let success = await singlePublicFileDelete(pic.image_url);
       if(success){
         pic.destroy();
@@ -84,7 +91,7 @@ router.patch(
     const {user} = req;
     const {name, description} = req.body;
     let pic = await Picture.findByPk(pictureid);
-    if(pic.user_id === user.id){
+    if(pic && pic.user_id === user.id){
       console.log("Enter", req.body)
       await pic.update({name, description})
       return res.json({name: pic.name, description: pic.description, image_url:pic.image_url})

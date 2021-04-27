@@ -12,11 +12,16 @@ router.get(
     asyncHandler(async (req, res) => {
       const {commentid} = req.params;
       let commentRow = await Comment.findByPk(commentid);
-      return res.json({
-        name: commentRow.comment,
-        description: commentRow.picture_id,
-        user_id: commentRow.user_id
-      })
+      if(commentRow){
+        return res.json({
+            name: commentRow.comment,
+            description: commentRow.picture_id,
+            user_id: commentRow.user_id
+          })
+      }
+      return res.status(400).send({
+        message: 'Comment not found.'
+     });
     })
 )
 
@@ -28,7 +33,7 @@ router.delete(
         const {commentid} = req.params;
         const {user} = req;
         let commentRow = await Comment.findByPk(commentid);
-        if(commentRow.user_id === user.id){
+        if(commentRow && commentRow.user_id === user.id){
             await commentRow.destroy();
             return res.status(200).send({
                 message: 'Successfully deleted comment.'
@@ -50,7 +55,7 @@ router.patch(
         const {user} = req;
         const {comment} = req.body;
         let commentRow = await Comment.findByPk(commentid);
-        if(commentRow.user_id === user.id){
+        if(commentRow && commentRow.user_id === user.id){
             await commentRow.update({comment});
             return res.status(200).send({
                 message: 'Successfully deleted comment.'

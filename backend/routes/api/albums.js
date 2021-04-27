@@ -13,11 +13,17 @@ router.get(
       const {albumid} = req.params;
       let album = await Album.findByPk(albumid);
       //Probably want to get all attached image Ids as well
-      return res.json({
-        name: album.name,
-        description: album.description,
-        user_id: album.user_id
-      })
+      if(album){
+        return res.json({
+          name: album.name,
+          description: album.description,
+          user_id: album.user_id
+        })
+      }
+      return res.status(400).send({
+        message: 'Album not found.'
+     });
+
     })
 )
 
