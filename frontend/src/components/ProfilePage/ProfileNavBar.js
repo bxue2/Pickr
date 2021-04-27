@@ -4,7 +4,7 @@ const ProfileNavBar = ({pageDisplay, setPageDisplay}) => {
 
     return (
         <div className='profile-nav-bar'>
-            <ul>
+            <ul className='profile-nav-bar_list'>
                 <li>
                     <div
                         className={pageDisplay === 'about' ? 'active' : ''}

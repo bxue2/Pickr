@@ -1,6 +1,7 @@
 .header-bar{
     display: flex;
     justify-content: space-between;
+    list-style-type: none;
 }
 
 .nav_profile-menu {
