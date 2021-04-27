@@ -2,19 +2,26 @@
     position: sticky;
     top: 0;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    list-style-type: none;
     height: 60px;
-    width: 100%;
+    flex: auto;
     background-color: white;
 }
 
 .header-bar-left{
-    justify-self: flex-start;
+    list-style-type: none;
+    margin-left: 40px;
 }
 
 .header-bar-right{
-    justify-self: flex-end;
+    list-style-type: none;
+    width: 25%;
+    display: flex;
+}
+
+.header-bar-right li{
+    padding-left: 30px;
 }
 
 .nav_profile-menu {

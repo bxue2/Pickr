@@ -12,12 +12,15 @@ const Navigation = ({isLoaded}) => {
     if(sessionUser){
         sessionLinks = (
             <>
-                <SearchBar />
-                <Link className='upload-image-button' to='/upload-image'>
-                    <i className="fas fa-image" />
-                    Upload Image
-                </Link>
-                <ProfileButton user={sessionUser}/>
+                <li>
+                    <Link className='upload-image-button' to='/upload-image'>
+                        <i className="fas fa-image" />
+                        Upload Image
+                    </Link>
+                </li>
+                <li>
+                    <ProfileButton user={sessionUser}/>
+                </li>
             </>
         )
     } else {
@@ -39,9 +42,11 @@ const Navigation = ({isLoaded}) => {
                 <li>
                     <NavLink exact to="/">Home</NavLink>
                 </li>
-
             </ul>
             <ul className='header-bar-right'>
+                <li>
+                    <SearchBar />
+                </li>
                 {isLoaded && sessionLinks}
             </ul>
         </div>
