@@ -7,6 +7,7 @@ const SearchBar = () => {
     const searchHandler = (e) => {
         e.preventDefault();
         //search logic
+        setSearchText('');
         history.push('/search-results')
     }
     return (
