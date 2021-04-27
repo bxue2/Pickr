@@ -15,7 +15,7 @@ router.get(
   asyncHandler(async (req, res) => {
     const {searchObj} = req.body
     let pictures = await Picture.findAll(searchObj);
-    return res.json(JSON.stringify(pictures));
+    return res.json(JSON.stringify(pictures.toJSON()));
   })
 )
 
@@ -31,7 +31,7 @@ router.get(
 
       }
     });
-    return res.json(JSON.stringify(pictures));
+    return res.json(JSON.stringify(pictures.toJSON()));
   })
 )
 
@@ -47,7 +47,7 @@ router.get(
         user_id: userid
       }
     });
-    return res.json(JSON.stringify(picture));
+    return res.json(JSON.stringify(picture.toJSON()));
   })
 )
 

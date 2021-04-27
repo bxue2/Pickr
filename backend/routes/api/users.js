@@ -28,6 +28,16 @@ const validateSignup = [
     handleValidationErrors,
   ];
 
+// Gets user info
+router.get(
+  '/:userid',
+  asyncHandler(async (req, res) => {
+    const { userid } = req.params;
+    let user = await User.findByPk(userid);
+    return res.json(user.toJSON());
+  }
+));
+
 // Sign up
 router.post(
     '',

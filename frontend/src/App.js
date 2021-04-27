@@ -7,6 +7,7 @@ import * as sessionActions from './store/session'
 import Navigation from './components/Navigation';
 import UploadImagePage from './components/UploadImagePage';
 import SinglePictureDisplay from './components/SinglePictureDisplay';
+import ProfilePage from './components/ProfilePage';
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,9 @@ function App() {
         </Route> */}
         <Route exact path="/pictures">
           Pictures
+        </Route>
+        <Route path="/users/:userid">
+          <ProfilePage />
         </Route>
         <Route path="/pictures/:pictureid">
           <SinglePictureDisplay />
