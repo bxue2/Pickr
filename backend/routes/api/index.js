@@ -13,7 +13,7 @@ router.use('/pictures', pictureRouter);
 
 router.use('/albums', albumRouter)
 
-router.user('/comments', commentRouter);
+router.use('/comments', commentRouter);
 
 // router.post('/test', (req, res) => {
 //     res.json({ requestBody: req.body });
