@@ -5,6 +5,8 @@ const { Tag } = require('../../db/models');
 
 const router = express.Router();
 
+//Lower importance mvp, handle this later
+
 // GET /api/tags
 //Gets all tags
 router.get(
@@ -25,3 +27,5 @@ router.get(
         return res.json(JSON.stringify(tag));
     })
   )
+
+  module.exports = router;
