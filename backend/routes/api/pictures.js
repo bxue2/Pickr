@@ -8,6 +8,33 @@ const {singlePublicFileUpload, singleMulterUpload, singlePublicFileDelete} = req
 
 const router = express.Router();
 
+// GET /api/pictures/query
+//Pass in a query object for findAll, will return result
+router.get(
+  "/query",
+  asyncHandler(async (req, res) => {
+    const {searchObj} = req.body
+    let pictures = await Picture.findAll(searchObj);
+    return res.json(JSON.stringify(pictures));
+  })
+)
+
+// GET /api/pictures/users/:userid
+//Gets all pictures belonging to user
+router.get(
+  "/users/:userid",
+  asyncHandler(async (req, res) => {
+    const {userid} = req.params;
+    console.log("enterd")
+    let picture = await Picture.findAll({
+      where:{
+        user_id: userid
+      }
+    });
+    return res.json(JSON.stringify(picture));
+  })
+)
+
 // GET /api/pictures/:pictureid
 router.get(
   "/:pictureid",
