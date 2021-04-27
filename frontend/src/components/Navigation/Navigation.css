@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     height: 60px;
-    flex: auto;
+    width: 100%;
     background-color: white;
 }
 
@@ -16,8 +16,9 @@
 
 .header-bar-right{
     list-style-type: none;
-    width: 25%;
+    justify-self: flex-end;
     display: flex;
+    margin-right: 40px;
 }
 
 .header-bar-right li{
@@ -25,6 +26,15 @@
 }
 
 .nav_profile-menu {
+    position: absolute;
+    height: 400px;
+    width: 250px;
+    background-color: white;
+    top: 60px;
+    right: -10px;
     border: 1px solid black;
     display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-right: 40px;
 }

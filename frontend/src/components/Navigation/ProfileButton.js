@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import * as sessionActions from '../../store/session';
 
@@ -40,9 +41,9 @@ const ProfileButton = ( {user} ) => {
             {showMenu && (
                 <div className="nav_profile-menu">
                     <h3>Username: </h3>
-                    <p>{sessionUser.username}</p>
+                    <Link to={`/users/${sessionUser.id}`}>{sessionUser.username}</Link>
                     <h3>Email: </h3>
-                    <p>{sessionUser.email}</p>
+                    <Link to={`/users/${sessionUser.id}`}>{sessionUser.email}</Link>
                     <button onClick={logOut}>Log Out</button>
                 </div>
             )}
