@@ -28,13 +28,13 @@ const ProfilePage = () => {
         const showComponent = () => {
             switch(pageDisplay){
                 case "pictures":
-                    return (<PicturesComponent pictures={[]}/>)
+                    return (<PicturesComponent pictures={userData.Pictures}/>)
                 default:
                     return;
             }
         }
         setCurrentComponent(showComponent());
-    }, [pageDisplay])
+    }, [pageDisplay, userData])
 
     return (
         <>

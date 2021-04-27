@@ -9,7 +9,9 @@ const PicturesComponent = ({pictures}) => {
                             <div
                                 key={picture.id}
                                 className='profile_picture-container'
-                                backgroundImage={picture.imageUrl}
+                                style={{
+                                    backgroundImage: `url(${picture.image_url})`
+                                }}
                             />
                     )
                 })}

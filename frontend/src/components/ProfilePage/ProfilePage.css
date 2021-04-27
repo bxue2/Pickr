@@ -35,3 +35,16 @@
 .profile-nav-bar_list li div.active{
     border-bottom: 4px solid rgba(65, 61, 255, 0.8);
 }
+
+
+/* Pictures Component */
+.profile_all-user-pictures{
+    display: flex;
+    direction: row;
+}
+.profile_picture-container{
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+}

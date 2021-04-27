@@ -38,7 +38,6 @@ router.get(
         model: Picture
       }
     });
-    console.log(user.toJSON());
     return res.json(user.toJSON());
   }
 ));
