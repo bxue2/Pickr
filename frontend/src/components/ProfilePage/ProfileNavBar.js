@@ -21,9 +21,9 @@ const ProfileNavBar = ({pageDisplay, setPageDisplay}) => {
                 </li>
                 <li>
                     <div
-                        className={pageDisplay === 'album' ? 'active' : ''}
-                        onClick={() => setPageDisplay("album")}>
-                        Album
+                        className={pageDisplay === 'albums' ? 'active' : ''}
+                        onClick={() => setPageDisplay("albums")}>
+                        Albums
                     </div>
                 </li>
             </ul>
