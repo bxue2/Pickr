@@ -14,7 +14,12 @@ router.get(
   asyncHandler(async (req, res) => {
     const {pictureid} = req.params;
     let picture = await Picture.findByPk(pictureid);
-    return res.json({name: picture.name, description: picture.description, image_url:picture.image_url})
+    return res.json({
+      name: picture.name,
+      description: picture.description,
+      image_url:picture.image_url,
+      user_id: picture.user_id
+    })
   })
 )
 
@@ -53,6 +58,7 @@ router.patch(
     const {name, description} = req.body;
     let pic = await Picture.findByPk(pictureid);
     if(pic.user_id === user.id){
+      console.log("Enter", req.body)
       await pic.update({name, description})
       return res.json({name: pic.name, description: pic.description, image_url:pic.image_url})
     }
