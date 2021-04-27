@@ -1,8 +1,9 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from "../LoginFormModal";
+import SearchBar from './SearchBar';
 import './Navigation.css'
 
 const Navigation = ({isLoaded}) => {
@@ -10,7 +11,14 @@ const Navigation = ({isLoaded}) => {
     let sessionLinks;
     if(sessionUser){
         sessionLinks = (
-            <ProfileButton user={sessionUser}/>
+            <>
+                <SearchBar />
+                <Link className='upload-image-button' to='/upload-image'>
+                    <i className="fas fa-image" />
+                    Upload Image
+                </Link>
+                <ProfileButton user={sessionUser}/>
+            </>
         )
     } else {
         sessionLinks = (
@@ -26,7 +34,7 @@ const Navigation = ({isLoaded}) => {
         );
     }
     return (
-        <ul>
+        <ul className='header-bar'>
             <li>
                 <NavLink exact to="/">Home</NavLink>
             </li>
