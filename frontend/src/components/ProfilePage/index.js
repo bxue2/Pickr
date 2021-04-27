@@ -28,7 +28,6 @@ const ProfilePage = () => {
         const showComponent = () => {
             switch(pageDisplay){
                 case "pictures":
-                    console.log("Entered")
                     return (<PicturesComponent pictures={[]}/>)
                 default:
                     return;
