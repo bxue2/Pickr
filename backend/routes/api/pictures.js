@@ -19,6 +19,22 @@ router.get(
   })
 )
 
+// GET /api/pictures/tags/
+//Pass in a tag name, will find pictures associated with tag
+//body should have an array of tags
+router.get(
+  "/query",
+  asyncHandler(async (req, res) => {
+    const {tagNames} = req.body;
+    let pictures = await Picture.findAll({
+      where:{
+
+      }
+    });
+    return res.json(JSON.stringify(pictures));
+  })
+)
+
 // GET /api/pictures/users/:userid
 //Gets all pictures belonging to user
 router.get(
@@ -92,7 +108,6 @@ router.patch(
     const {name, description} = req.body;
     let pic = await Picture.findByPk(pictureid);
     if(pic && pic.user_id === user.id){
-      console.log("Enter", req.body)
       await pic.update({name, description})
       return res.json({name: pic.name, description: pic.description, image_url:pic.image_url})
     }
