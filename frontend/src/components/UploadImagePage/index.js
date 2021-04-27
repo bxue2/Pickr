@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 // import {useSelector} from 'react-redux';
 import { useHistory } from 'react-router';
-import {csrfFetch} from '../../store/csrf'
-
+import {csrfFetch} from '../../store/csrf';
+import UploadActionBar from './UploadActionBar';
 import './UploadImagePage.css';
 const UploadImagePage = () => {
     let [imageFile, setImageFile] = useState('');
@@ -35,6 +35,7 @@ const UploadImagePage = () => {
 
     return (
         <>
+            <UploadActionBar pictures={[]}/>
             <form onSubmit={submitHandler}>
                 <div className='upload-file'>
                     <input type='file' onChange={setImage}></input>
@@ -53,7 +54,7 @@ const UploadImagePage = () => {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}/>
                 </label>
-                <button type="submit" accept='img/jpeg, img/png'>Upload Image</button>
+                <button type="submit" accept='image/*'>Upload Image</button>
             </form>
 
         </>
