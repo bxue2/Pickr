@@ -1,15 +1,22 @@
 
 const UploadBodyFileList = (props) => {
     const {
-        imageFiles, names, descriptions, selectIndex, setNames, setDescriptions
+        imageFiles, names, descriptions, selectIndex, setNames, setDescriptions, setSelectIndex
     } = props;
 
+    //Clicks the hidden add file input
     const addImageButton = (e) => {
         document.getElementById("add-file").click();
     }
 
+    //Prevents form from submitting
     const cancelSubmit = (e) => {
         e.preventDefault();
+    }
+
+    //After clicking a picture, will mark it as selected
+    const selectPic = (e) => {
+
     }
 
     let bodyType = (
@@ -23,8 +30,13 @@ const UploadBodyFileList = (props) => {
         bodyType = (
                 imageFiles.map((picture, index) => {
                     var url = URL.createObjectURL(picture);
+                    let selectedClass = (selectIndex !== index) ? 'upload-list_picture-container' : 'upload-list_picture-container active'
                     return (
-                        <div key={index} className='upload-list_picture-container'>
+                        <div key={index}
+                            className={selectedClass} onClick={(e) => {
+                                e.stopPropagation();
+                                setSelectIndex(index);
+                            }}>
                             <div
                                 className='upload-list_picture-container_image'
                                 style={{
@@ -62,7 +74,11 @@ const UploadBodyFileList = (props) => {
     }
     return (
         <>
-            <div className='upload-body-file-list'>
+            <div className='upload-body-file-list' onClick={
+                (e) => {
+                    setSelectIndex(-1);
+                }
+            }>
                 {bodyType}
             </div>
         </>
