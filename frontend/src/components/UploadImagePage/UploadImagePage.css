@@ -17,6 +17,8 @@ li{
     color:rgba(0, 25, 49, 0.8);
 }
 
+/* Action Bar */
+
 .upload-action-bar{
     display: flex;
     background-color: rgba(0, 0, 0, 0.1);
@@ -41,7 +43,7 @@ li{
     margin-right: 40px;
 }
 
-/* Upload Body */
+/* Upload Sidebar */
 .upload-body{
     background-color: rgba(0, 0, 0, 0.6);
     height: 100%;
@@ -53,7 +55,7 @@ li{
     border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 2px;
     width: 400px;
-    margin-left: 30px;
+    /* margin-left: 30px; */
     padding: 30px;
     color: white;
 }
@@ -74,6 +76,24 @@ li{
     border-bottom: 2px solid rgba(200, 200, 200, 1);
 }
 
+/* Upload body file list */
+
 .upload-body-file-list{
+    padding: 10px;
     background-color:sandybrown;
+    height: auto;
+    width: 100%;
+    display: flex;
+}
+
+.upload-list_picture-container{
+    margin: 10px;
+    background-color:rgba(142, 255, 212, 0.6);
+    width: 160px;
+    height: 200px;
+    border: 1px solid rgba(0,0,0,0.9);
+}
+
+.upload-list_picture-container_image{
+
 }

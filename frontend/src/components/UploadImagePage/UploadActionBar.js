@@ -28,7 +28,7 @@ const UploadActionBar = (props) => {
     }
 
     const addImages = (e) => {
-        props.setImageFiles([...props.imageFiles, ...e.target.files]);
+        props.setImageFiles([...imageFiles, ...e.target.files]);
     }
 
     const addImageButton = (e) => {
