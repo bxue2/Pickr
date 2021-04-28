@@ -22,24 +22,6 @@ const UploadImagePage = () => {
         imageUrls, setImageUrls, imageFiles, setImageFiles, names, setNames, changeName, descriptions, setDescriptions, selectIndex, setSelectIndex
     }
 
-    // const submitHandler = async (e) => {
-    //     e.preventDefault();
-    //     const formData = new FormData();
-    //     formData.append('name', name);
-    //     formData.append('description', description);
-    //     formData.append('image', imageFile);
-    //     let response = await csrfFetch('/api/pictures', {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "multipart/form-data",
-    //         },
-    //         body: formData
-    //     })
-    //     const data = await response.json();
-    //     console.log(data);
-    //     history.push('/');
-    // }
-
     return (
         <>
             <UploadActionBar {...stateChildren}/>
@@ -48,25 +30,5 @@ const UploadImagePage = () => {
     );
 }
 
-// <form onSubmit={submitHandler}>
-//                 <div className='upload-file'>
-//                     <input type='file' onChange={setImage}></input>
-//                 </div>
-//                 <label>
-//                     Name:
-//                     <input
-//                         type='text'
-//                         value={name}
-//                         onChange={(e) => setName(e.target.value)}/>
-//                 </label>
-//                 <label>
-//                     Description:
-//                     <input
-//                     type='text'
-//                     value={description}
-//                     onChange={(e) => setDescription(e.target.value)}/>
-//                 </label>
-//                 <button type="submit" accept='image/*'>Upload Image</button>
-//             </form>
 
 export default UploadImagePage;

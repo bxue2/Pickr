@@ -12,7 +12,9 @@ const PicturesComponent = ({pictures}) => {
                                 style={{
                                     backgroundImage: `url(${picture.image_url})`
                                 }}
-                            />
+                            >
+                                
+                            </div>
                     )
                 })}
             </div>
