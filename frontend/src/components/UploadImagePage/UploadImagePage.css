@@ -22,8 +22,24 @@ li{
     background-color: rgba(0, 0, 0, 0.1);
     height: 40px;
     width: 100%;
+    align-items: center;
 }
 
+.upload-action-bar_left{
+    margin-left: 30px;
+    display: flex;
+}
+
+.upload-action-bar_button{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.upload-button{
+    margin-left: auto;
+    margin-right: 40px;
+}
 
 /* Upload Body */
 .upload-body{
@@ -43,6 +59,7 @@ li{
 }
 
 .upload-body-sidebar_title{
+    margin: 10px;
     font-size: 28px;
     font-weight: 600;
 }

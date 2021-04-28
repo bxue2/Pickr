@@ -35,26 +35,33 @@ const UploadActionBar = (props) => {
         document.getElementById("add-file").click();
     }
 
+    const removeImage = () => {
+
+    }
+
     return (
         <div className='upload-action-bar'>
-            <ul>
+            <ul className='upload-action-bar_left'>
                 <li>
-                    <button onClick={addImageButton}>
-                        <i className="fas fa-plus" />
-                        Add
+                    <button className='upload-action-bar_button' onClick={addImageButton}>
+                        <i className="fas fa-plus" style={{color:'green'}}/>
+                        {" Add"}
                     </button>
                     <input hidden id='add-file' type='file' multiple accept='image/*' onChange={addImages}></input>
                 </li>
                 {props.imageFiles.length > 0 && (
                     <>
                         <li>
-                            Remove
+                            <button className='upload-action-bar_button' onClick={removeImage}>
+                                <i className="fas fa-minus" style={{color:'red'}}/>
+                                {" Remove"}
+                            </button>
                         </li>
                     </>
                 )}
             </ul>
             {props.imageFiles.length > 0 && (
-                <form onSubmit={submitHandler}>
+                <form className='upload-button' onSubmit={submitHandler}>
                     <button type='submit' >Upload {props.imageFiles.length} Pictures</button>
                 </form>
             )}
