@@ -31,15 +31,19 @@ const UploadActionBar = (props) => {
         props.setImageFiles([...props.imageFiles, ...e.target.files]);
     }
 
+    const addImageButton = (e) => {
+        document.getElementById("add-file").click();
+    }
+
     return (
         <div className='upload-action-bar'>
             <ul>
                 <li>
-                    <button>
+                    <button onClick={addImageButton}>
                         <i className="fas fa-plus" />
                         Add
                     </button>
-                    <input type='file' multiple accept='image/*' onChange={addImages}></input>
+                    <input hidden id='add-file' type='file' multiple accept='image/*' onChange={addImages}></input>
                 </li>
                 {props.imageFiles.length > 0 && (
                     <>
