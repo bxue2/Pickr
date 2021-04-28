@@ -3,8 +3,9 @@ const CreateAlbumFooterList = ({unusedPictures}) => {
     return (
         <div className='create-album-footer'>
             <div className='create-album-footer_actions'>
-                <form>
-                    <input type='text' placeholder='Search'/>
+                <form onSubmit={(e) => {e.preventDefault()}}>
+                    <input type='text' placeholder='Search (maybe?)'/>
+                    <button type='submit'>Search</button>
                 </form>
             </div>
             <div className='create-album-footer_list'>
@@ -16,7 +17,11 @@ const CreateAlbumFooterList = ({unusedPictures}) => {
                                 style={{
                                     backgroundImage: `url(${picture.image_url})`
                                 }}
-                            />
+                            >
+                                <div className='picture-container_name-tip'>
+                                    {picture.name}
+                                </div>
+                            </div>
                     )
                 })}
             </div>
