@@ -31,14 +31,25 @@ const UploadBodyFileList = (props) => {
                                     backgroundImage:`url(${url})`
                                 }}
                             />
-                            <form onSubmit={cancelSubmit}>
+                            <form className='picture-container_form' onSubmit={cancelSubmit}>
                                 <input
                                     className='picture-oontainer_field'
+                                    placeholder='Name'
                                     value={names[index]}
                                     onChange={(e) => {
                                         let newNames = [...names];
                                         names[index] = e.target.value;
                                         setNames(newNames);
+                                    }}
+                                />
+                                <textarea
+                                    className='picture-container_field'
+                                    placeholder='Description'
+                                    value={descriptions[index]}
+                                    onChange={(e) => {
+                                        let newDesc = [...descriptions];
+                                        descriptions[index] = e.target.value;
+                                        setDescriptions(newDesc);
                                     }}
                                 />
                             </form>
