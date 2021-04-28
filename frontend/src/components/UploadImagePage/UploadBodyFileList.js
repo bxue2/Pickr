@@ -13,7 +13,7 @@ const UploadBodyFileList = (props) => {
                                 <div
                                     className='upload-list_picture-container_image'
                                     style={{
-                                        background: `url(${url})`
+                                        backgroundImage:`url(${url})`
                                     }}
                                 />
                                 <span>{names[index]}</span>
