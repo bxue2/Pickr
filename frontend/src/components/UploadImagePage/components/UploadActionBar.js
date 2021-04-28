@@ -4,7 +4,7 @@ import {csrfFetch} from '../../../store/csrf';
 const UploadActionBar = (props) => {
     let history = useHistory();
     const {
-        imageFiles, names, descriptions
+        imageFiles, imageUrls, names, descriptions, setImageFiles, setImageUrls, setNames, setDescriptions
     } = props;
 
     const submitHandler = async (e) => {
@@ -28,7 +28,20 @@ const UploadActionBar = (props) => {
     }
 
     const addImages = (e) => {
-        props.setImageFiles([...imageFiles, ...e.target.files]);
+        let newImageFiles = [...imageFiles];
+        let newNames = [...names];
+        let newDesc = [...descriptions];
+        let newImageUrls = [...imageUrls];
+        for(let i = 0; i < e.target.files.length; i++){
+            newImageFiles.push(e.target.files[i]);
+            newNames.push(e.target.files.name);
+            newDesc.push("");
+            newImageUrls.push(URL.createObjectURL(e.target.files[i]));
+        }
+        setImageFiles(newImageFiles);
+        setNames(newNames);
+        setDescriptions(newDesc);
+        setImageUrls(newImageUrls);
     }
 
     const addImageButton = (e) => {

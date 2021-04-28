@@ -1,7 +1,8 @@
-
+import PictureThumbnail from './PictureThumbnail';
+import PictureNameInput from './PictureNameInput';
 const UploadBodyFileList = (props) => {
     const {
-        imageFiles, names, descriptions, selectIndex, changeName, setDescriptions, setSelectIndex
+        imageUrls, imageFiles, names, descriptions, selectIndex, changeName, setDescriptions, setSelectIndex
     } = props;
 
     //Clicks the hidden add file input
@@ -24,7 +25,7 @@ const UploadBodyFileList = (props) => {
     if(imageFiles.length > 0){
         bodyType = (
                 imageFiles.map((picture, index) => {
-                    var url = URL.createObjectURL(picture);
+                    // var url = URL.createObjectURL(picture);
                     let selectedClass = (selectIndex !== index) ? 'upload-list_picture-container' : 'upload-list_picture-container active'
                     return (
                         <div key={index}
@@ -32,30 +33,22 @@ const UploadBodyFileList = (props) => {
                                 e.stopPropagation();
                                 setSelectIndex(index);
                             }}>
-                            <div
-                                className='upload-list_picture-container_image'
-                                style={{
-                                    backgroundImage:`url(${url})`
-                                }}
-                            />
-                            <form className='picture-container_form' onSubmit={cancelSubmit}>
-                                <input
-                                    className='picture-oontainer_field'
-                                    placeholder='Name'
-                                    value={names[index]}
-                                    onChange={(e) => {changeName(e.target.value, index)}}
-                                />
-                                <textarea
-                                    className='picture-container_field'
-                                    placeholder='Description'
-                                    value={descriptions[index]}
-                                    onChange={(e) => {
-                                        let newDesc = [...descriptions];
-                                        descriptions[index] = e.target.value;
-                                        setDescriptions(newDesc);
-                                    }}
-                                />
-                            </form>
+                            <PictureThumbnail url={imageUrls[index]}/>
+                            <div>
+                                <form className='picture-container_form' onSubmit={cancelSubmit}>
+                                    <PictureNameInput index={index} names={names} changeName={changeName}/>
+                                    <textarea
+                                        className='picture-container_field'
+                                        placeholder='Description'
+                                        value={descriptions[index]}
+                                        onChange={(e) => {
+                                            let newDesc = [...descriptions];
+                                            descriptions[index] = e.target.value;
+                                            setDescriptions(newDesc);
+                                        }}
+                                    />
+                                </form>
+                            </div>
                         </div>
                     )
                 })
