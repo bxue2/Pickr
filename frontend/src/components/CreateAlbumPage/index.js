@@ -12,6 +12,10 @@ const CreateAlbumPage = () => {
     const [unusedPictures, setUnusedPictures] = useState([]);
     const [addedPictures, setAddedPictures] = useState([]);
 
+    let pictureStates = {
+        unusedPictures, setUnusedPictures, addedPictures, setAddedPictures
+    }
+
     useEffect(() => {
         async function getUserData(){
             let profileUser = await csrfFetch(`/api/users/${sessionUser.id}`)
@@ -26,9 +30,9 @@ const CreateAlbumPage = () => {
         <>
             <div className='create-album-container'>
                 <CreateAlbumSidebar />
-                <CreateAlbumBody />
+                <CreateAlbumBody {...pictureStates} />
             </div>
-            <CreateAlbumFooterList unusedPictures={unusedPictures} />
+            <CreateAlbumFooterList {...pictureStates} />
         </>
     )
 

@@ -1,12 +1,4 @@
-import {useState} from 'react'
-
-
-
-const CreateAlbumFooterList = () => {
-
-
-
-
+const CreateAlbumFooterList = ({unusedPictures}) => {
 
     return (
         <div className='create-album-footer'>
@@ -16,7 +8,7 @@ const CreateAlbumFooterList = () => {
                 </form>
             </div>
             <div className='create-album-footer_list'>
-            {pictures.map((picture) => {
+            {unusedPictures.map((picture) => {
                     return (
                             <div
                                 key={picture.id}
