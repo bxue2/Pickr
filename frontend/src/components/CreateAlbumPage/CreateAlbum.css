@@ -14,11 +14,41 @@
     bottom: -180px;
 }
 
+/* Sidebar */
 .create-album-sidebar{
     background-color: rgb(100,0,0,0.5);
+    width: 300px;
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
+
+.create-album-sidebar_form{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.create-album-sidebar_name{
+    font-size: 20px;
+}
+
+.create-album-sidebar_description{
+    margin-top: 20px;
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.create-album-sidebar_submit-btn{
+    margin-bottom: 20px;
+
+}
+
+/* Album Body */
+
 .create-album-body{
     background-color: rgba(0,100,0,0.5);
+    flex-grow: 1;
 }
 
 /* Footer section */

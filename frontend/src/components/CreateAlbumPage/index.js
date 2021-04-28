@@ -9,9 +9,14 @@ import './CreateAlbum.css';
 const CreateAlbumPage = () => {
     let sessionUser = useSelector(state => state.session.user)
     const [userData, setUserData] = useState({});
+    const [albumName, setAlbumName] = useState('');
+    const [albumDesc, setAlbumDesc] = useState('');
     const [unusedPictures, setUnusedPictures] = useState([]);
     const [addedPictures, setAddedPictures] = useState([]);
 
+    let albumStates = {
+        albumName, setAlbumName, albumDesc, setAlbumDesc
+    }
     let pictureStates = {
         unusedPictures, setUnusedPictures, addedPictures, setAddedPictures
     }
@@ -29,7 +34,7 @@ const CreateAlbumPage = () => {
     return (
         <div className='create-album-container'>
             <div className='create-album-body-container'>
-                <CreateAlbumSidebar />
+                <CreateAlbumSidebar {...albumStates}/>
                 <CreateAlbumBody {...pictureStates} />
             </div>
             <CreateAlbumFooterList {...pictureStates} />
