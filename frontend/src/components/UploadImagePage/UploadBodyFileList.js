@@ -21,8 +21,7 @@ const UploadBodyFileList = (props) => {
     )
     if(imageFiles.length > 0){
         bodyType = (
-            <form onSubmit={cancelSubmit}>
-                {imageFiles.map((picture, index) => {
+                imageFiles.map((picture, index) => {
                     var url = URL.createObjectURL(picture);
                     return (
                         <div key={index} className='upload-list_picture-container'>
@@ -32,19 +31,22 @@ const UploadBodyFileList = (props) => {
                                     backgroundImage:`url(${url})`
                                 }}
                             />
-                            <input
-                                value={names[index]}
-                                onChange={(e) => {
-                                    let newNames = [...names];
-                                    names[index] = e.target.value;
-                                    setNames(newNames);
-                                }}
-                            />
+                            <form onSubmit={cancelSubmit}>
+                                <input
+                                    className='picture-oontainer_field'
+                                    value={names[index]}
+                                    onChange={(e) => {
+                                        let newNames = [...names];
+                                        names[index] = e.target.value;
+                                        setNames(newNames);
+                                    }}
+                                />
+                            </form>
                             <span>{descriptions[index]}</span>
                         </div>
                     )
-                })}
-            </form>
+                })
+
         )
     }
     return (
