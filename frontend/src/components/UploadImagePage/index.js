@@ -6,9 +6,9 @@ import './UploadImagePage.css';
 const UploadImagePage = () => {
     // let [imageFile, setImageFile] = useState('');
     let [imageFiles, setImageFiles] = useState([]);
-    let [names, setNames] = useState('');
-    let [descriptions, setDescriptions] = useState('');
-    let [selectIndex, setSelectIndex] = useState(0);
+    let [names, setNames] = useState([]);
+    let [descriptions, setDescriptions] = useState([]);
+    let [selectIndex, setSelectIndex] = useState(-1);
 
     const stateChildren = {
         imageFiles, setImageFiles, names, setNames, descriptions, setDescriptions, selectIndex, setSelectIndex
