@@ -7,11 +7,13 @@ import './CreateAlbum.css';
 const CreateAlbumPage = () => {
 
     return (
-        <div className='create-album-container'>
-            <CreateAlbumSidebar />
-            <CreateAlbumBody />
+        <>
+            <div className='create-album-container'>
+                <CreateAlbumSidebar />
+                <CreateAlbumBody />
+            </div>
             <CreateAlbumFooterList />
-        </div>
+        </>
     )
 
 }
