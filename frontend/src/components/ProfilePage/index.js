@@ -2,9 +2,9 @@ import {useState, useEffect} from 'react';
 import {useParams} from 'react-router-dom';
 // import {useSelector} from 'react-redux';
 import { csrfFetch } from '../../store/csrf';
-import PicturesComponent from './PicturesComponent';
-import ProfileHeader from './ProfileHeader';
-import ProfileNavBar from './ProfileNavBar';
+import PicturesComponent from './components/PicturesComponent';
+import ProfileHeader from './components/ProfileHeader';
+import ProfileNavBar from './components/ProfileNavBar';
 import './ProfilePage.css';
 
 const ProfilePage = () => {

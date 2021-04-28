@@ -1,5 +1,5 @@
 import {useHistory} from 'react-router-dom';
-import {csrfFetch} from '../../store/csrf';
+import {csrfFetch} from '../../../store/csrf';
 
 const UploadActionBar = (props) => {
     let history = useHistory();

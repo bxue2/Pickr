@@ -1,7 +1,7 @@
 
 const UploadBodyFileList = (props) => {
     const {
-        imageFiles, names, descriptions, selectIndex, setNames, setDescriptions, setSelectIndex
+        imageFiles, names, descriptions, selectIndex, changeName, setDescriptions, setSelectIndex
     } = props;
 
     //Clicks the hidden add file input
@@ -43,11 +43,7 @@ const UploadBodyFileList = (props) => {
                                     className='picture-oontainer_field'
                                     placeholder='Name'
                                     value={names[index]}
-                                    onChange={(e) => {
-                                        let newNames = [...names];
-                                        names[index] = e.target.value;
-                                        setNames(newNames);
-                                    }}
+                                    onChange={(e) => {changeName(e.target.value, index)}}
                                 />
                                 <textarea
                                     className='picture-container_field'

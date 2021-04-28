@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 
-import UploadActionBar from './UploadActionBar';
-import UploadBody from './UploadBody'
+import UploadActionBar from './components/UploadActionBar';
+import UploadBody from './components/UploadBody'
 import './UploadImagePage.css';
 const UploadImagePage = () => {
     // let [imageFile, setImageFile] = useState('');
@@ -10,11 +10,17 @@ const UploadImagePage = () => {
     let [descriptions, setDescriptions] = useState([]);
     let [selectIndex, setSelectIndex] = useState(-1);
 
+    const changeName = useCallback((value, index) => {
+        let newNames = [...names];
+        names[index] = value;
+        setNames(newNames);
+        console.log("Enter")
+    }, [names])
+
+
     const stateChildren = {
-        imageFiles, setImageFiles, names, setNames, descriptions, setDescriptions, selectIndex, setSelectIndex
+        imageFiles, setImageFiles, names, changeName, descriptions, setDescriptions, selectIndex, setSelectIndex
     }
-
-
 
     // const submitHandler = async (e) => {
     //     e.preventDefault();
