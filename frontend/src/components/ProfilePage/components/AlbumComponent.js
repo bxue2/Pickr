@@ -1,9 +1,10 @@
-
+import AlbumComponentHeader from './AlbumComponentHeader';
 const AlbumComponent = ({albums}) => {
     console.log(albums);
     return (
         <>
-            <div className='profile_all-user-pictures'>
+            <div className='profile_all-user-allbums'>
+                <AlbumComponentHeader />
                 {albums.map((album) => {
                     return (
                             <div
