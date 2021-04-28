@@ -2,12 +2,16 @@
 .create-album-container{
     display: flex;
     flex-direction: column;
-    height: 80%;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    width: 100%;
 }
 
 .create-album-body-container{
     display: flex;
     flex-grow: 1;
+    bottom: -180px;
 }
 
 .create-album-sidebar{
@@ -20,7 +24,7 @@
 /* Footer section */
 .create-album-footer{
     background-color: rgba(60, 60, 104, 1);
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     width: 100%;
     height: 180px;
