@@ -27,13 +27,13 @@ const CreateAlbumPage = () => {
     }, [])
 
     return (
-        <>
-            <div className='create-album-container'>
+        <div className='create-album-container'>
+            <div className='create-album-body-container'>
                 <CreateAlbumSidebar />
                 <CreateAlbumBody {...pictureStates} />
             </div>
             <CreateAlbumFooterList {...pictureStates} />
-        </>
+        </div>
     )
 
 }

@@ -1,5 +1,13 @@
+
 .create-album-container{
     display: flex;
+    flex-direction: column;
+    height: 80%;
+}
+
+.create-album-body-container{
+    display: flex;
+    flex-grow: 1;
 }
 
 .create-album-sidebar{
@@ -11,7 +19,7 @@
 
 /* Footer section */
 .create-album-footer{
-    background-color: rgba(0,0,100,0.5);
+    background-color: rgba(60, 60, 104, 1);
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -57,7 +65,7 @@
 
 .picture-container_name-tip{
     visibility: hidden;
-    padding: 1px;
+    padding: 2px;
     overflow: hidden;
     background-color: rgba(0,0,0,0.6);
     color: white;
