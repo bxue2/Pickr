@@ -14,11 +14,6 @@ const UploadBodyFileList = (props) => {
         e.preventDefault();
     }
 
-    //After clicking a picture, will mark it as selected
-    const selectPic = (e) => {
-
-    }
-
     let bodyType = (
         <>
             <div className='addImagePrompt' onClick={addImageButton}>
@@ -65,7 +60,6 @@ const UploadBodyFileList = (props) => {
                                     }}
                                 />
                             </form>
-                            <span>{descriptions[index]}</span>
                         </div>
                     )
                 })
