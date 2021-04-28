@@ -15,7 +15,7 @@ const CreateAlbumPage = () => {
     const [addedPictures, setAddedPictures] = useState([]);
 
     let albumStates = {
-        albumName, setAlbumName, albumDesc, setAlbumDesc
+        albumName, setAlbumName, albumDesc, setAlbumDesc, userData
     }
     let pictureStates = {
         unusedPictures, setUnusedPictures, addedPictures, setAddedPictures
@@ -29,7 +29,7 @@ const CreateAlbumPage = () => {
             setUnusedPictures(data.Pictures)
         }
         getUserData();
-    }, [])
+    }, [sessionUser.id])
 
     return (
         <div className='create-album-container'>
