@@ -1,6 +1,6 @@
 
 const PicturesComponent = ({pictures}) => {
-
+    console.log(pictures);
     return (
         <>
             <div className='profile_all-user-pictures'>
@@ -13,7 +13,7 @@ const PicturesComponent = ({pictures}) => {
                                     backgroundImage: `url(${picture.image_url})`
                                 }}
                             >
-                                
+
                             </div>
                     )
                 })}
