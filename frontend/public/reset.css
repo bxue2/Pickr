@@ -25,3 +25,5 @@ body {
   h1 {
     font-size: 2rem;
   }
+
+  html, body, #root { height: 100%; }

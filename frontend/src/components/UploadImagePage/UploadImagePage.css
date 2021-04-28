@@ -1,3 +1,7 @@
+li{
+    list-style-type: none;
+}
+
 .upload-file{
     width: 300px;
     height: 50px;
@@ -23,7 +27,36 @@
 
 /* Upload Body */
 .upload-body{
-    height: 100%;
-    width: 100%;
     background-color: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    display: flex;
+}
+
+.upload-body-sidebar{
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    width: 400px;
+    margin-left: 30px;
+    padding: 30px;
+    color: white;
+}
+
+.upload-body-sidebar_title{
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.upload-body-sidebar ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.upload-body-sidebar ul li{
+    margin: 10px;
+    border-bottom: 2px solid rgba(200, 200, 200, 1);
+}
+
+.upload-body-file-list{
+    background-color:sandybrown;
 }

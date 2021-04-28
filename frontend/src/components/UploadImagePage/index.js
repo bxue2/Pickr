@@ -1,22 +1,20 @@
 import React, {useState} from 'react';
-// import {useSelector} from 'react-redux';
-import { useHistory } from 'react-router';
-import {csrfFetch} from '../../store/csrf';
+
 import UploadActionBar from './UploadActionBar';
 import UploadBody from './UploadBody'
 import './UploadImagePage.css';
 const UploadImagePage = () => {
     // let [imageFile, setImageFile] = useState('');
     let [imageFiles, setImageFiles] = useState([]);
-    let [name, setName] = useState('');
-    let [description, setDescription] = useState('');
-    // let sessionUser = useSelector(state => state.session.user)
+    let [names, setNames] = useState('');
+    let [descriptions, setDescriptions] = useState('');
+    let [selectIndex, setSelectIndex] = useState(0);
 
     const stateChildren = {
-        imageFiles, setImageFiles, name, setName, description, setDescription
+        imageFiles, setImageFiles, names, setNames, descriptions, setDescriptions, selectIndex, setSelectIndex
     }
 
-    let history = useHistory();
+
 
     // const submitHandler = async (e) => {
     //     e.preventDefault();
