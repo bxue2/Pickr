@@ -52,16 +52,29 @@
 /* Album Component */
 .album-component-header{
     width: 100%;
-    height: 30px;
+    height: 40px;
     background-color: rgba(116, 125, 206, 0.308);
     display:flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 30px;
+    padding-right: 30px;
 }
 
 .new-album-button{
     border: 1px solid rgba(0, 0, 0, 0.2);
     padding: 5px;
     background-color: rgba(250, 250, 250, 1);
+}
+
+.album-component-body{
+    display: flex;
+}
+
+.no-album-text{
+    margin: auto;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

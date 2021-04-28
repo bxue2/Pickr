@@ -1,3 +1,4 @@
+import AlbumComponentBody from './AlbumComponentBody';
 import AlbumComponentHeader from './AlbumComponentHeader';
 const AlbumComponent = ({albums}) => {
     console.log(albums);
@@ -5,16 +6,7 @@ const AlbumComponent = ({albums}) => {
         <>
             <div className='profile_all-user-allbums'>
                 <AlbumComponentHeader />
-                {albums.map((album) => {
-                    return (
-                            <div
-                                key={album.id}
-                                className='profile_album-container'
-                            >
-                                <span>{album.name}</span>
-                            </div>
-                    )
-                })}
+                <AlbumComponentBody albums={albums}/>
             </div>
         </>
     );
