@@ -13,9 +13,8 @@ const UploadImagePage = () => {
 
     const changeName = useCallback((value, index) => {
         let newNames = [...names];
-        names[index] = value;
+        newNames[index] = value;
         setNames(newNames);
-        console.log("Enter")
     }, [names])
 
 

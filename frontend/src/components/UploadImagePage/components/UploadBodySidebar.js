@@ -1,6 +1,6 @@
 const UploadBodySidebar = (props) => {
     const {
-        names, changeName, descriptions, setDescriptions, selectIndex
+        names, descriptions, setDescriptions, selectIndex, setNames
     } = props;
 
     let content = (
@@ -8,7 +8,6 @@ const UploadBodySidebar = (props) => {
     )
 
     if(selectIndex !== -1){
-        let index = selectIndex;
         content = (
             <>
                 <h3 className='upload-body-sidebar_title'>Edit: </h3>
@@ -18,18 +17,22 @@ const UploadBodySidebar = (props) => {
                             <label>
                                 {"Name: "}
                                 <input
-                                value={names[index]}
-                                onChange={(e) => {changeName(e.target.value, index)}}/>
+                                value={names[selectIndex]}
+                                onChange={(e) => {
+                                    let newNames = [...names];
+                                    newNames[selectIndex] = e.target.value;
+                                    setNames(newNames);
+                                }}/>
                             </label>
                         </li>
                         <li>
                             <label>
                                 {"Description: "}
                                 <input
-                                value={descriptions[index]}
+                                value={descriptions[selectIndex]}
                                 onChange={(e) => {
                                     let newDesc = [...descriptions];
-                                    newDesc[index] = e.target.value;
+                                    newDesc[selectIndex] = e.target.value;
                                     setDescriptions(newDesc);
                                 }}/>
                             </label>

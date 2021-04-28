@@ -2,7 +2,7 @@ import PictureThumbnail from './PictureThumbnail';
 import PictureNameInput from './PictureNameInput';
 const UploadBodyFileList = (props) => {
     const {
-        imageUrls, imageFiles, names, descriptions, selectIndex, changeName, setDescriptions, setSelectIndex
+        imageUrls, imageFiles, names, descriptions, selectIndex, setNames, setDescriptions, setSelectIndex
     } = props;
 
     //Clicks the hidden add file input
@@ -36,14 +36,14 @@ const UploadBodyFileList = (props) => {
                             <PictureThumbnail url={imageUrls[index]}/>
                             <div>
                                 <form className='picture-container_form' onSubmit={cancelSubmit}>
-                                    <PictureNameInput index={index} names={names} changeName={changeName}/>
+                                    <PictureNameInput index={index} names={names} setNames={setNames}/>
                                     <textarea
                                         className='picture-container_field'
                                         placeholder='Description'
                                         value={descriptions[index]}
                                         onChange={(e) => {
                                             let newDesc = [...descriptions];
-                                            descriptions[index] = e.target.value;
+                                            newDesc[index] = e.target.value;
                                             setDescriptions(newDesc);
                                         }}
                                     />

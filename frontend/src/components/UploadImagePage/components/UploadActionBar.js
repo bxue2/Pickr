@@ -34,7 +34,7 @@ const UploadActionBar = (props) => {
         let newImageUrls = [...imageUrls];
         for(let i = 0; i < e.target.files.length; i++){
             newImageFiles.push(e.target.files[i]);
-            newNames.push(e.target.files.name);
+            newNames.push(e.target.files[i].name);
             newDesc.push("");
             newImageUrls.push(URL.createObjectURL(e.target.files[i]));
         }
