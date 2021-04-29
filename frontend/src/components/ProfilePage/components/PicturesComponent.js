@@ -1,6 +1,10 @@
-
+import {useHistory} from 'react-router-dom';
 const PicturesComponent = ({pictures}) => {
-    console.log(pictures);
+    let history = useHistory();
+
+    const goToPic = (pictureid) => {
+        history.push(`/pictures/${pictureid}`);
+    }
     return (
         <>
             <div className='profile_all-user-pictures'>
@@ -12,6 +16,7 @@ const PicturesComponent = ({pictures}) => {
                                 style={{
                                     backgroundImage: `url(${picture.image_url})`
                                 }}
+                                onClick={() => {goToPic(picture.id)}}
                             >
 
                             </div>
