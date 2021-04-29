@@ -17,6 +17,9 @@ const CreateAlbumFooterList = ({unusedPictures}) => {
         e.preventDefault();
         e.stopPropagation();
     }
+    const startDrag = (e) => {
+
+    }
 
     return (
         <div className='create-album-footer'>
@@ -33,11 +36,16 @@ const CreateAlbumFooterList = ({unusedPictures}) => {
                 onDragEnter={e => handleDragEnter(e)}
                 onDragLeave={e => handleDragLeave(e)}
             >
-            {unusedPictures.map((picture) => {
+                {unusedPictures.map((picture) => {
                     return (
                             <div
                                 key={picture.id}
+                                draggable
                                 className='create-album_picture-container'
+                                onDragStart={(e) => {
+                                    e.dataTransfer.setData('picture', picture);
+                                    e.dataTransfer.setData('unused', true)
+                                }}
                                 style={{
                                     backgroundImage: `url(${picture.image_url})`
                                 }}

@@ -18,7 +18,7 @@ const CreateAlbumPage = () => {
         albumName, setAlbumName, albumDesc, setAlbumDesc, userData
     }
     let pictureStates = {
-        unusedPictures, setUnusedPictures, addedPictures, setAddedPictures
+        unusedPictures, addedPictures, setAddedPictures
     }
 
     useEffect(() => {
