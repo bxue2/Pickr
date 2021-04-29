@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import {csrfFetch} from '../../../store/csrf';
 import {useHistory} from 'react-router-dom';
@@ -10,8 +10,14 @@ const ImageEditInfo = (props) => {
     } = props;
 
     let sessionUser = useSelector(state => state.session.user)
-    let [editName, setEditName] = useState(name);
-    let [editDesc, setEditDesc] = useState(description);
+    let [editName, setEditName] = useState('');
+    let [editDesc, setEditDesc] = useState('');
+    let [editable, setEditable] = useState(false);
+
+    useEffect(() => {
+        setEditName(name);
+        setEditDesc(description);
+    }, [editable])
 
     const deletePicture = async (e) => {
         let response = await csrfFetch(`/api/pictures/${pictureid}`, {
@@ -23,43 +29,72 @@ const ImageEditInfo = (props) => {
         }
     }
 
-        //temp function for testing editing picture
-        const editHandler = async (e) => {
-            e.preventDefault();
-            let response = await csrfFetch(`/api/pictures/${pictureid}`,{
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({name: editName, description: editDesc})
-            });
-            let data = await response.json();
-            setName(data.name);
-            setDescription(data.description);
-        }
+    const cancelEdit = (e) => {
+        setEditable(false);
+    }
+
+    //temp function for testing editing picture
+    const editHandler = async (e) => {
+        e.preventDefault();
+        let response = await csrfFetch(`/api/pictures/${pictureid}`,{
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: editName, description: editDesc})
+        });
+        let data = await response.json();
+        setName(data.name);
+        setDescription(data.description);
+    }
+
+    let picInfo = (
+        <>
+            <div className='image-name'>Name: {name}</div>
+            <p className='image-desc'>Description: {description}</p>
+        </>
+    )
+
+    if(editable){
+
+        picInfo=(
+            <>
+            <form className='edit-pic-form' onSubmit={editHandler}>
+                <label>
+                    <input type="text" placeholder='Add name' value={editName} onChange={(e) => setEditName(e.target.value)}/>
+                </label>
+                <label>
+                    <textarea placeholder='Add description' value={editDesc} onChange={(e) => setEditDesc(e.target.value)}/>
+                </label>
+                <button type="submit">Save</button>
+                <button onClick={deletePicture}>Delete</button>
+                <button onClick={cancelEdit}>Cancel</button>
+            </form>
+            </>
+        )
+    } else{
+        picInfo=(
+            <>
+                <div className='image-name'>Name: {name}</div>
+                <p className='image-desc'>Description: {description}</p>
+            </>
+        );
+    }
+
 
     return (
         <>
         <div className='image-info-left_pic-info'>
                 <div className='image-owner'>Owner: {username}</div>
-                <div className='image-name'>Name: {name}</div>
-                <p className='image-desc'>Description: {description}</p>
-                <button onClick={deletePicture}>Delete</button>
-            </div>
+                <div className='pic-info-toggle' onClick={(e) => {
+                    if(imageOwnerId === sessionUser.id && !editable){
+                        setEditable(true)
+                    }
+                }}>
+                    {picInfo}
+                </div>
 
-            {imageOwnerId === sessionUser.id && (
-            <form onSubmit={editHandler}>
-                <label>
-                    Name:
-                    <input type="text" value={editName} onChange={(e) => setEditName(e.target.value)}/>
-                </label>
-                <label>
-                    Description:
-                    <input type="text" value={editDesc} onChange={(e) => setEditDesc(e.target.value)}/>
-                </label>
-                <button type="submit">Edit Picture</button>
-            </form>
-            )}
+            </div>
         </>
     )
 }

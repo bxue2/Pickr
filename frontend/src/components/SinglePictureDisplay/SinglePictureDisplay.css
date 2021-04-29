@@ -32,6 +32,19 @@
     margin-bottom: 30px;
 }
 
+.pic-info-toggle{
+    margin-top: 10px;
+}
+
+.edit-pic-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-pic-form *{
+    margin-bottom:10px;
+}
+
 /* Info right sidebar */
 
 .image-info-right{
