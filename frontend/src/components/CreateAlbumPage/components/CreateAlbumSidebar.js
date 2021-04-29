@@ -1,9 +1,21 @@
+import {useHistory} from 'react-router-dom';
+import {csrfFetch} from '../../../store/csrf';
 
 const CreateAlbumSidebar = ({albumName, setAlbumName, albumDesc, setAlbumDesc, addedPictures}) => {
-
-    const saveAlbum = (e) => {
+    let history = useHistory();
+    const saveAlbum = async (e) => {
         e.preventDefault();
-
+        let pictureIds = addedPictures.map((picture) => picture.id);
+        let response = await csrfFetch('/api/albums', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: albumName, description: albumDesc, pictures: pictureIds})
+        });
+        const data = await response.json();
+        console.log(data);
+        history.push('/');
     }
 
     return (

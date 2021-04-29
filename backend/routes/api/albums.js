@@ -11,14 +11,14 @@ router.get(
     "/:albumid",
     asyncHandler(async (req, res) => {
       const {albumid} = req.params;
-      let album = await Album.findByPk(albumid);
+      let album = await Album.findByPk(albumid, {
+        include:[{
+          model:Picture
+        }]
+      });
       //Probably want to get all attached image Ids as well
       if(album){
-        return res.json({
-          name: album.name,
-          description: album.description,
-          user_id: album.user_id
-        })
+        return res.json(album.toJSON())
       }
       return res.status(400).send({
         message: 'Album not found.'
