@@ -6,7 +6,7 @@ import {useHistory} from 'react-router-dom';
 const ImageEditInfo = (props) => {
     let history = useHistory();
     const {
-        name, setName, description, setDescription, imageOwnerId, pictureid
+        name, setName, description, setDescription, imageOwnerId, pictureid, username
     } = props;
 
     let sessionUser = useSelector(state => state.session.user)
@@ -41,7 +41,7 @@ const ImageEditInfo = (props) => {
     return (
         <>
         <div className='image-info-left_pic-info'>
-                <div className='image-owner'>Owner: {imageOwnerId}</div>
+                <div className='image-owner'>Owner: {username}</div>
                 <div className='image-name'>Name: {name}</div>
                 <p className='image-desc'>Description: {description}</p>
                 <button onClick={deletePicture}>Delete</button>

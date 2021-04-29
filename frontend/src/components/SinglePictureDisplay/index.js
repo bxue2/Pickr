@@ -11,13 +11,14 @@ const SinglePictureDisplay = () => {
     let [imageUrl, setImageUrl] = useState('');
     let [name, setName] = useState('');
     let [description, setDescription] = useState('');
+    let [username, setUsername] = useState('');
     let [imageOwnerId, setImageOwnerId] = useState(0);
 
     const {pictureid} = useParams();
     let history = useHistory();
 
     const passStates = {
-        name, setName, description, setDescription, imageOwnerId, pictureid
+        name, setName, description, setDescription, imageOwnerId, pictureid, username
     }
 
     useEffect(() => {
@@ -28,6 +29,7 @@ const SinglePictureDisplay = () => {
             setName(data.name);
             setDescription(data.description);
             setImageOwnerId(data.user_id);
+            setUsername(data.user_name);
         }
         fetchData();
     }, [pictureid])

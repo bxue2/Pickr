@@ -2,7 +2,7 @@ const express = require('express')
 const asyncHandler = require('express-async-handler');
 
 const { requireAuth } = require('../../utils/auth');
-const { Picture } = require('../../db/models');
+const { Picture, User } = require('../../db/models');
 
 const {singlePublicFileUpload, singleMulterUpload, singlePublicFileDelete} = require('../../aswS3');
 
@@ -41,7 +41,6 @@ router.get(
   "/users/:userid",
   asyncHandler(async (req, res) => {
     const {userid} = req.params;
-    console.log("enterd")
     let picture = await Picture.findAll({
       where:{
         user_id: userid
@@ -56,13 +55,16 @@ router.get(
   "/:pictureid",
   asyncHandler(async (req, res) => {
     const {pictureid} = req.params;
-    let picture = await Picture.findByPk(pictureid);
+    let picture = await Picture.findByPk(pictureid, {
+      include: User
+    });
     if(picture){
       return res.json({
         name: picture.name,
         description: picture.description,
         image_url:picture.image_url,
-        user_id: picture.user_id
+        user_id: picture.user_id,
+        user_name: picture.User.username
       })
     } else{
       return res.status(400).send({

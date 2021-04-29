@@ -17,9 +17,7 @@ const PicturesComponent = ({pictures}) => {
                                     backgroundImage: `url(${picture.image_url})`
                                 }}
                                 onClick={() => {goToPic(picture.id)}}
-                            >
-
-                            </div>
+                            />
                     )
                 })}
             </div>
