@@ -46,6 +46,7 @@ const ImageEditInfo = (props) => {
         let data = await response.json();
         setName(data.name);
         setDescription(data.description);
+        setEditable(false);
     }
 
     let picInfo = (
@@ -61,10 +62,10 @@ const ImageEditInfo = (props) => {
             <>
             <form className='edit-pic-form' onSubmit={editHandler}>
                 <label>
-                    <input type="text" placeholder='Add name' value={editName} onChange={(e) => setEditName(e.target.value)}/>
+                    <input className='edit-pic-form_name-input' type="text" placeholder='Add name' value={editName} onChange={(e) => setEditName(e.target.value)}/>
                 </label>
                 <label>
-                    <textarea placeholder='Add description' value={editDesc} onChange={(e) => setEditDesc(e.target.value)}/>
+                    <textarea className='edit-pic-form_desc-input' placeholder='Add description' value={editDesc} onChange={(e) => setEditDesc(e.target.value)}/>
                 </label>
                 <button type="submit">Save</button>
                 <button onClick={deletePicture}>Delete</button>
