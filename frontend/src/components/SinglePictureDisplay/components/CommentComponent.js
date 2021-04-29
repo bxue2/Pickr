@@ -8,7 +8,7 @@ const CommentComponent = () => {
     return (
         <div className='comment-component'>
             <CommentListComponent />
-            <CommentInput />
+            <CommentInput comments={comments} setComments={setComments}/>
         </div>
     )
 }
