@@ -6,12 +6,15 @@ const AlbumComponentBody = ({albums}) => {
     if(albums.length > 0){
         content = (
             albums.map((album) => {
+                console.log(album);
             return (
                 <div
                     key={album.id}
                     className='profile_album-container'
                 >
-                    <span>{album.name}</span>
+                    <div className='profile_album-container_album-cover'>
+                        <span>{album.name}</span>
+                    </div>
                 </div>
             )
         }))
