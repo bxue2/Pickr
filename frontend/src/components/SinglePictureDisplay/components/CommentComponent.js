@@ -7,13 +7,13 @@ const CommentComponent = ({pictureid, username}) => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        // async function fetchComments(){
-        //     const response = await csrfFetch(`/api/comments/picture/${[pictureid]}`)
-        //     const data = await response.json();
-        //     console.log(data);
-        // }
-        // fetchComments();
-    },[])
+        async function fetchComments(){
+            const response = await csrfFetch(`/api/comments/picture/${[pictureid]}`)
+            const data = await response.json();
+            setComments(data);
+        }
+        fetchComments();
+    },[pictureid])
 
     return (
         <div className='comment-component'>

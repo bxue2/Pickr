@@ -29,14 +29,15 @@ router.get(
 // GET /api/comments/picture/:pictureid
 router.get("/picture/:pictureid",
   asyncHandler(async (req, res) => {
-      const {pictureid} = req.params;
+    console.log("Reached")
+    const {pictureid} = req.params;
       let comments = await Comment.findAll({
         where:{
           picture_id:pictureid
         }
       });
-      if(comments){
-        return res.json(comments.toJSON());
+      if(comments.length !== 0){
+        return res.json(comments);
       }
       return res.status(400).send({
         message: 'No Comments for Picture.'
