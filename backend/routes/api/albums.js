@@ -104,7 +104,7 @@ router.post(
               picture_id: pictureId
           })
       }))
-      return newAlbum;
+      return res.json(newAlbum.toJSON());
     })
   );
 

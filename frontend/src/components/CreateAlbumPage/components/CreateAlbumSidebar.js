@@ -3,19 +3,26 @@ import {csrfFetch} from '../../../store/csrf';
 
 const CreateAlbumSidebar = ({albumName, setAlbumName, albumDesc, setAlbumDesc, addedPictures}) => {
     let history = useHistory();
+
     const saveAlbum = async (e) => {
         e.preventDefault();
-        let pictureIds = addedPictures.map((picture) => picture.id);
-        let response = await csrfFetch('/api/albums', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({name: albumName, description: albumDesc, pictures: pictureIds})
-        });
-        const data = await response.json();
-        console.log(data);
-        history.push('/');
+        console.log(addedPictures);
+        if(addedPictures.length > 0){
+            let pictureIds = addedPictures.map((picture) => picture.id);
+            console.log("Pre-response");
+            let response = await csrfFetch('/api/albums', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({name: albumName, description: albumDesc, pictures: pictureIds})
+            });
+            console.log("Post-response", response);
+            // const data = await response.json();
+            // console.log(data);
+            history.push('/');
+            console.log("push exectured")
+        }
     }
 
     return (

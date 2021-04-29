@@ -34,7 +34,7 @@ const CreateAlbumPage = () => {
     return (
         <div className='create-album-container'>
             <div className='create-album-body-container'>
-                <CreateAlbumSidebar {...albumStates}/>
+                <CreateAlbumSidebar {...albumStates } addedPictures={addedPictures}/>
                 <CreateAlbumBody {...pictureStates} />
             </div>
             <CreateAlbumFooterList {...pictureStates} />
