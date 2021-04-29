@@ -1,9 +1,13 @@
 
 const CommentInput = () => {
+    const submitComment = () => {
+
+    }
     return (
-        <div>
-            <form>
-                <textarea></textarea>
+        <div className='comment-section'>
+            <form className='add-comment-form' onSubmit={submitComment}>
+                <textarea placeholder='Add comment'></textarea>
+                <button type='submit'>Add Comment</button>
             </form>
         </div>
     )

@@ -88,6 +88,30 @@
     grid-template-columns: 200px 200px 200px 1fr;
 }
 
+/* Comment Section */
+.comment-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-comment-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+}
+
+.add-comment-form textarea{
+    width: 400px;
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
 /* Info right sidebar */
 
 .image-info-right{
