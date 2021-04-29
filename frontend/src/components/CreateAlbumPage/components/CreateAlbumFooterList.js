@@ -1,4 +1,4 @@
-const CreateAlbumFooterList = ({unusedPictures}) => {
+const CreateAlbumFooterList = ({unusedPictures, addedPictures, setAddedPictures}) => {
 
     //Drag and Drop functions
     const handleDragEnter = (e) => {
@@ -16,9 +16,19 @@ const CreateAlbumFooterList = ({unusedPictures}) => {
     const handleDrop = (e) => {
         e.preventDefault();
         e.stopPropagation();
-    }
-    const startDrag = (e) => {
+        let pictureData = JSON.parse(e.dataTransfer.getData("text"));
 
+        //If picture data used to be in body, remove from album
+        let newPictures = [...addedPictures];
+        if(!pictureData.unused){
+            for(let i = 0; i < addedPictures.length; i++){
+                if(addedPictures[i].id === pictureData.picture.id){
+                    newPictures.splice(i, 1);
+                    setAddedPictures(newPictures);
+                    return;
+                }
+            }
+        }
     }
 
     return (
