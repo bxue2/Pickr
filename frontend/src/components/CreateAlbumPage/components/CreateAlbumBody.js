@@ -1,4 +1,4 @@
-
+import AlbumBodyPicture from './AlbumBodyPicture';
 const CreateAlbumBody = ({unusedPictures, addedPictures, setAddedPictures}) => {
 
     //Drag and Drop functions
@@ -17,20 +17,26 @@ const CreateAlbumBody = ({unusedPictures, addedPictures, setAddedPictures}) => {
             console.log("Dragover");
         }
     }
+    //Check if picture is already in album
+    const checkPictureExists = (picture) => {
+        for(let i = 0; i < addedPictures.length; i++){
+            if(picture.id === addedPictures[i].id){
+                return true;
+            }
+        }
+        return false;
+    }
     const handleDrop = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        if(e.dataTransfer.getData("unused")){
-            let picture = e.dataTransfer.getData("picture");
-            if(!addedPictures.includes(picture.id)){
-                let newPictures = [...addPictures];
-                newPictures.push(picture);
+        let pictureData = JSON.parse(e.dataTransfer.getData("text"));
+        if(pictureData.index === -1){
+            if(!checkPictureExists(pictureData.picture)){
+                let newPictures = [...addedPictures];
+                newPictures.push(pictureData.picture);
                 setAddedPictures(newPictures);
             }
         }
-        // if(e.target.class === "create-album_picture-container"){
-            console.log("Dropped", e.dataTransfer.getData("unused"));
-        // }
     }
 
     return (
@@ -43,7 +49,7 @@ const CreateAlbumBody = ({unusedPictures, addedPictures, setAddedPictures}) => {
         >
             {
                 addedPictures.map((picture, index) => {
-                    return <AlbumBodyPicture picture={picture} index={index}/>
+                    return <AlbumBodyPicture addedPictures={addedPictures} setAddedPictures={setAddedPictures} picture={picture} index={index} key={index}/>
                 })
             }
         </div>

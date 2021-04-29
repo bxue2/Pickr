@@ -43,8 +43,8 @@ const CreateAlbumFooterList = ({unusedPictures}) => {
                                 draggable
                                 className='create-album_picture-container'
                                 onDragStart={(e) => {
-                                    e.dataTransfer.setData('picture', picture);
-                                    e.dataTransfer.setData('unused', true)
+                                    let transfer = {picture, index: -1};
+                                    e.dataTransfer.setData('text', JSON.stringify(transfer));
                                 }}
                                 style={{
                                     backgroundImage: `url(${picture.image_url})`

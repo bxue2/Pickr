@@ -49,6 +49,8 @@
 .create-album-body{
     background-color: rgba(0,100,0,0.5);
     flex-grow: 1;
+
+    display: flex;
 }
 
 /* Footer section */
