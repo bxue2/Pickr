@@ -14,8 +14,8 @@ router.get(
       let commentRow = await Comment.findByPk(commentid);
       if(commentRow){
         return res.json({
-            name: commentRow.comment,
-            description: commentRow.picture_id,
+            comment: commentRow.comment,
+            picture_id: commentRow.picture_id,
             user_id: commentRow.user_id
           })
       }
@@ -76,13 +76,13 @@ router.post(
       const { user } = req;
       const { comment, picture_id } = req.body;
 
-      const newComment = await Album.create({
+      const newComment = await Comment.create({
         comment,
         picture_id,
         user_id: user.id
       })
 
-      return newComment;
+      return res.json(newComment.toJSON());
     })
   );
 

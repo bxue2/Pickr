@@ -1,9 +1,9 @@
 import {csrfFetch} from '../../../store/csrf';
 import {useState} from 'react';
 
-const CommentInput = ({comments, setComments}) => {
+const CommentInput = ({comments, setComments, pictureid}) => {
     const [newComment, setNewComment] = useState();
-    const submitComment = (e) => {
+    const submitComment = async (e) => {
         e.preventDefault();
         console.log(newComment);
         const response = await csrfFetch('/api/comments', {
@@ -11,12 +11,14 @@ const CommentInput = ({comments, setComments}) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body:JSON.stringify({})
+            body:JSON.stringify({comment: newComment, picture_id: pictureid})
         })
         const data = await response.json();
+        console.log(data);
         let addComments = [...comments];
         addComments.push(data);
         setComments(addComments);
+        setNewComment('');
     }
     return (
         <div className='comment-section'>
