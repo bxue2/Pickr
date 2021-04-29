@@ -68,10 +68,10 @@
 
 .album-component-body{
     display: flex;
-    width: 100%;
+    flex-wrap:wrap;
 }
 
-.profile_album-container_album-cover{
+.profile_album-container{
     height: 150px;
     width: 150px;
     margin: 10px;

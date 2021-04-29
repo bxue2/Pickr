@@ -12,9 +12,9 @@ const AlbumComponentBody = ({albums}) => {
                     key={album.id}
                     className='profile_album-container'
                 >
-                    <div className='profile_album-container_album-cover'>
+                    {/* <div className='profile_album-container_album-cover'> */}
                         <span>{album.name}</span>
-                    </div>
+                    {/* </div> */}
                 </div>
             )
         }))
