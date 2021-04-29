@@ -41,10 +41,10 @@ const ImageInfoLeft = (props) => {
 
     return (
         <div className='image-info-left'>
-            <div className='image-info'>
-                <div className='image-name'>{name}</div>
-                <div className='image-desc'>{description}</div>
+            <div className='image-info-left_pic-info'>
                 <div className='image-owner'>Owner: {imageOwnerId}</div>
+                <div className='image-name'>Name: {name}</div>
+                <p className='image-desc'>Description: {description}</p>
                 <button onClick={deletePicture}>Delete</button>
             </div>
 
