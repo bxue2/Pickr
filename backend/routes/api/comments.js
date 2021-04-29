@@ -29,18 +29,17 @@ router.get(
 // GET /api/comments/picture/:pictureid
 router.get("/picture/:pictureid",
   asyncHandler(async (req, res) => {
-      const {commentid} = req.params;
-      let commentRow = await Comment.findByPk(commentid);
-      if(commentRow){
-        return res.json({
-            comment: commentRow.comment,
-            picture_id: commentRow.picture_id,
-            user_id: commentRow.user_id,
-            created_at: comment.created_at
-          })
+      const {pictureid} = req.params;
+      let comments = await Comment.findAll({
+        where:{
+          picture_id:pictureid
+        }
+      });
+      if(comments){
+        return res.json(comments.toJSON());
       }
       return res.status(400).send({
-        message: 'Comment not found.'
+        message: 'No Comments for Picture.'
       });
   })
 )

@@ -7,7 +7,7 @@ import ImageEditInfo from './ImageEditInfo';
 
 const ImageInfoLeft = (props) => {
     // const {
-    //     name, setName, description, setDescription, imageOwnerId, pictureid
+    //     name, setName, description, setDescription, imageOwnerId, pictureid, username
     // } = props;
 
 
@@ -15,7 +15,7 @@ const ImageInfoLeft = (props) => {
         <div className='image-info-left'>
             <ImageEditInfo {...props}/>
 
-            <CommentComponent pictureid={props.pictureid}/>
+            <CommentComponent pictureid={props.pictureid} username={props.username}/>
         </div>
     )
 }

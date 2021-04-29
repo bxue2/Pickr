@@ -17,7 +17,7 @@ const ImageEditInfo = (props) => {
     useEffect(() => {
         setEditName(name);
         setEditDesc(description);
-    }, [editable])
+    }, [editable, name, description])
 
     const deletePicture = async (e) => {
         let response = await csrfFetch(`/api/pictures/${pictureid}`, {
@@ -95,7 +95,7 @@ const ImageEditInfo = (props) => {
         <>
         <div className='image-info-left_pic-info'>
             <div className='image-owner'>{"Owner: "}
-                <Link>{username}</Link>
+                <Link to={`/users/${imageOwnerId}`}>{username}</Link>
             </div>
             {picInfo}
         </div>

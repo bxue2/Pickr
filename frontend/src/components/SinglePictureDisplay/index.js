@@ -1,13 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {useSelector} from 'react-redux';
-import { useHistory, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import {csrfFetch} from '../../store/csrf';
 import ImageInfoLeft from './components/ImageInfoLeft';
 import ImageInfoRight from './components/ImageInfoRight';
 import './SinglePictureDisplay.css'
 
 const SinglePictureDisplay = () => {
-    let sessionUser = useSelector(state => state.session.user)
     let [imageUrl, setImageUrl] = useState('');
     let [name, setName] = useState('');
     let [description, setDescription] = useState('');
@@ -15,7 +13,6 @@ const SinglePictureDisplay = () => {
     let [imageOwnerId, setImageOwnerId] = useState(0);
 
     const {pictureid} = useParams();
-    let history = useHistory();
 
     const passStates = {
         name, setName, description, setDescription, imageOwnerId, pictureid, username
