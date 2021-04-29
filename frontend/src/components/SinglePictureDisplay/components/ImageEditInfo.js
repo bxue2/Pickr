@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import {csrfFetch} from '../../../store/csrf';
-import {useHistory} from 'react-router-dom';
+import {useHistory, Link} from 'react-router-dom';
 
 const ImageEditInfo = (props) => {
     let history = useHistory();
@@ -67,18 +67,26 @@ const ImageEditInfo = (props) => {
                 <label>
                     <textarea className='edit-pic-form_desc-input' placeholder='Add description' value={editDesc} onChange={(e) => setEditDesc(e.target.value)}/>
                 </label>
-                <button type="submit">Save</button>
-                <button onClick={deletePicture}>Delete</button>
-                <button onClick={cancelEdit}>Cancel</button>
+                <div className='edit-pic-form_buttons'>
+                    <button onClick={deletePicture}>Delete</button>
+                    <button type="submit">Save</button>
+                    <button onClick={cancelEdit}>Cancel</button>
+                </div>
             </form>
             </>
         )
     } else{
         picInfo=(
-            <>
+            <div className='pic-info-toggle' onClick={(e) => {
+                if(imageOwnerId === sessionUser.id && !editable){
+                    setEditable(true)
+                }
+            }}>
                 <div className='image-name'>Name: {name}</div>
-                <p className='image-desc'>Description: {description}</p>
-            </>
+                <div className='image-desc'>
+                    <span>{"Description: "}</span>
+                    {description}</div>
+            </div>
         );
     }
 
@@ -86,16 +94,13 @@ const ImageEditInfo = (props) => {
     return (
         <>
         <div className='image-info-left_pic-info'>
-                <div className='image-owner'>Owner: {username}</div>
-                <div className='pic-info-toggle' onClick={(e) => {
-                    if(imageOwnerId === sessionUser.id && !editable){
-                        setEditable(true)
-                    }
-                }}>
-                    {picInfo}
-                </div>
-
+            <div className='image-owner'>{"Owner: "}
+                <Link>{username}</Link>
             </div>
+            {picInfo}
+        </div>
+
+
         </>
     )
 }
