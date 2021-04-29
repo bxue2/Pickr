@@ -6,10 +6,8 @@ const CreateAlbumSidebar = ({albumName, setAlbumName, albumDesc, setAlbumDesc, a
 
     const saveAlbum = async (e) => {
         e.preventDefault();
-        console.log(addedPictures);
         if(addedPictures.length > 0){
             let pictureIds = addedPictures.map((picture) => picture.id);
-            console.log("Pre-response");
             let response = await csrfFetch('/api/albums', {
                 method: 'POST',
                 headers: {
@@ -17,11 +15,9 @@ const CreateAlbumSidebar = ({albumName, setAlbumName, albumDesc, setAlbumDesc, a
                 },
                 body: JSON.stringify({name: albumName, description: albumDesc, pictures: pictureIds})
             });
-            console.log("Post-response", response);
-            // const data = await response.json();
-            // console.log(data);
+            const data = await response.json();
+            console.log(data);
             history.push('/');
-            console.log("push exectured")
         }
     }
 
