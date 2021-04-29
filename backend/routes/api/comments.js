@@ -16,13 +16,33 @@ router.get(
         return res.json({
             comment: commentRow.comment,
             picture_id: commentRow.picture_id,
-            user_id: commentRow.user_id
+            user_id: commentRow.user_id,
+            created_at: comment.created_at
           })
       }
       return res.status(400).send({
         message: 'Comment not found.'
      });
     })
+)
+
+// GET /api/comments/picture/:pictureid
+router.get("/picture/:pictureid",
+  asyncHandler(async (req, res) => {
+      const {commentid} = req.params;
+      let commentRow = await Comment.findByPk(commentid);
+      if(commentRow){
+        return res.json({
+            comment: commentRow.comment,
+            picture_id: commentRow.picture_id,
+            user_id: commentRow.user_id,
+            created_at: comment.created_at
+          })
+      }
+      return res.status(400).send({
+        message: 'Comment not found.'
+      });
+  })
 )
 
 //DELETE /api/comments/:commentid

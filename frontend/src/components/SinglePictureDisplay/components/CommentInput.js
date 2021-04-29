@@ -14,7 +14,6 @@ const CommentInput = ({comments, setComments, pictureid}) => {
             body:JSON.stringify({comment: newComment, picture_id: pictureid})
         })
         const data = await response.json();
-        console.log(data);
         let addComments = [...comments];
         addComments.push(data);
         setComments(addComments);

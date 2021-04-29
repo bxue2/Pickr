@@ -1,8 +1,11 @@
+import SingleCommentComponent from "./SingleCommentComponent";
 
-const CommentList = () => {
+const CommentList = ({comments, username}) => {
     return (
-        <div>
-            
+        <div className='comment-list'>
+            {comments.map((comment) => {
+                <SingleCommentComponent username={username} comment={comment}/>
+            })}
         </div>
     )
 }
