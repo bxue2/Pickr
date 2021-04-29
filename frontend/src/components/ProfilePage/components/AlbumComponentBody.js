@@ -1,5 +1,11 @@
-
+import {useHistory} from 'react-router-dom';
 const AlbumComponentBody = ({albums}) => {
+    let history = useHistory();
+
+    const redirectToAlbum = (album) => {
+        console.log(album.id);
+        history.push('/')
+    }
     let content = (
         <span className='no-album-text'>No albums</span>
     )
@@ -11,10 +17,12 @@ const AlbumComponentBody = ({albums}) => {
                 <div
                     key={album.id}
                     className='profile_album-container'
+                    onClick={(e) => {
+                        e.preventDefault()
+                        redirectToAlbum(album)
+                    }}
                 >
-                    {/* <div className='profile_album-container_album-cover'> */}
                         <span>{album.name}</span>
-                    {/* </div> */}
                 </div>
             )
         }))

@@ -80,6 +80,9 @@
     align-items: center;
     background-color: cornflowerblue;
 }
+.profile_album-container span{
+    color: white;
+}
 
 .no-album-text{
     margin: auto;
