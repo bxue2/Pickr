@@ -27,6 +27,7 @@ router.get(
 )
 
 // GET /api/comments/picture/:pictureid
+//Returns all comments for a picture
 router.get("/picture/:pictureid",
   asyncHandler(async (req, res) => {
     console.log("Reached")
@@ -38,10 +39,12 @@ router.get("/picture/:pictureid",
       });
       if(comments.length !== 0){
         return res.json(comments);
+      } else{
+        return res.json([]);
       }
-      return res.status(400).send({
-        message: 'No Comments for Picture.'
-      });
+      // return res.status(400).send({
+      //   message: 'No Comments for Picture.'
+      // });
   })
 )
 
