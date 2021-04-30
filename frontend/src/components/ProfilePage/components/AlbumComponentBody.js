@@ -3,8 +3,7 @@ const AlbumComponentBody = ({albums}) => {
     let history = useHistory();
 
     const redirectToAlbum = (album) => {
-        console.log(album.id);
-        history.push('/')
+        history.push(`/albums/${album.id}`)
     }
     let content = (
         <span className='no-album-text'>No albums</span>
