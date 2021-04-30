@@ -4,7 +4,8 @@ import {csrfFetch} from '../../../store/csrf';
 const UploadActionBar = (props) => {
     let history = useHistory();
     const {
-        selectIndex, setSelectIndex, imageFiles, imageUrls, names, descriptions, setImageFiles, setImageUrls, setNames, setDescriptions
+        selectIndex, setSelectIndex, imageFiles, imageUrls, names, descriptions,
+        setImageFiles, setImageUrls, setNames, setDescriptions, tags, setTags
     } = props;
 
     const submitHandler = async (e) => {
@@ -32,16 +33,19 @@ const UploadActionBar = (props) => {
         let newNames = [...names];
         let newDesc = [...descriptions];
         let newImageUrls = [...imageUrls];
+        let newTags = [...tags];
         for(let i = 0; i < e.target.files.length; i++){
             newImageFiles.push(e.target.files[i]);
             newNames.push(e.target.files[i].name);
             newDesc.push("");
             newImageUrls.push(URL.createObjectURL(e.target.files[i]));
+            newTags.push([]);
         }
         setImageFiles(newImageFiles);
         setNames(newNames);
         setDescriptions(newDesc);
         setImageUrls(newImageUrls);
+        setTags(newTags);
     }
 
     const addImageButton = (e) => {
@@ -54,14 +58,17 @@ const UploadActionBar = (props) => {
             let newNames = [...names];
             let newDesc = [...descriptions];
             let newImageUrls = [...imageUrls];
+            let newTags = [...tags];
             newImageFiles.splice(selectIndex, 1);
             newNames.splice(selectIndex, 1);
             newDesc.splice(selectIndex, 1);
             newImageUrls.splice(selectIndex, 1);
+            newTags.splice(selectIndex, 1);
             setImageFiles(newImageFiles);
             setNames(newNames);
             setDescriptions(newDesc);
             setImageUrls(newImageUrls);
+            setTags(newTags);
             setSelectIndex(-1);
         }
 

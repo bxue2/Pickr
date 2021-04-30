@@ -1,10 +1,23 @@
 import {useState} from 'react';
-const UploadBodySidebarTags = ({tags, setTags}) => {
+const UploadBodySidebarTags = ({tags, setTags, selectIndex}) => {
     const [newTag, setNewTag] = useState('');
     const [openTagForm, setOpenTagForm] = useState(false)
+
+    const removeTag = (e) => {
+        let tagVal = e.target.innerHTML;
+        let newTagList = [];
+        tags[selectIndex].forEach((tag) => {
+            if(tag !== tagVal){
+                newTagList.push(tag);
+            }
+        })
+        let allTags = [...tags];
+        allTags[selectIndex] = newTagList;
+        setTags(allTags);
+    }
     const UploadTagContainer = ({tagName}) => {
         return (
-            <div className='upload-tag-container'>
+            <div className='upload-tag-container' onClick={removeTag}>
                 {tagName}
             </div>
         )
@@ -17,23 +30,23 @@ const UploadBodySidebarTags = ({tags, setTags}) => {
 
     const addTag = (e) => {
         e.preventDefault();
-        let newTagList = [...tags];
+        let allTags = [...tags]
+        let newTagList = [...tags[selectIndex]];
         newTagList.push(newTag)
-        setTags(newTagList);
+        allTags[selectIndex] = newTagList;
+        setTags(allTags);
         setNewTag('');
     }
 
     let allTags = (
-        tags.map((tag) => {
+        tags[selectIndex].map((tag) => {
             return (<UploadTagContainer key={tag} tagName={tag}/>)
         })
     );
-    console.log(tags);
+
     return (
         <>
         <div className='upload-sidebar-tags'>
-            {/* <UploadTagContainer tagName='Bob'/>
-            <UploadTagContainer tagName='Bob2'/> */}
             {allTags}
             <div className='add-tag-button' onClick={openAddTagForm}>
                 <i className="far fa-plus-square"></i>

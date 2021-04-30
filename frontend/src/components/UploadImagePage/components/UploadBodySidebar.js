@@ -40,8 +40,8 @@ const UploadBodySidebar = (props) => {
                             </label>
                         </li>
                         <li>
-                            Tags:
-                            <UploadBodySidebarTags tags={props.tags} setTags={props.setTags}/>
+                            Tags (Click to remove):
+                            <UploadBodySidebarTags tags={props.tags} setTags={props.setTags} selectIndex={selectIndex}/>
                         </li>
                     </ul>
                 </form>

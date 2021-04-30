@@ -91,6 +91,10 @@ li{
     margin-right: 5px;
 }
 
+.upload-tag-container:hover{
+    background-color: rgb(180, 0, 0);
+}
+
 .add-tag-button{
     align-self: center;
     margin-top: 4px;
