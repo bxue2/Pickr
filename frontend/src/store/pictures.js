@@ -39,7 +39,7 @@ const clearPictures = () => {
 export const loadPicturesFromAlbum = (albumid) => async dispatch => {
     let response = await csrfFetch(`/api/albums/${albumid}`);
     let data = await response.json();
-    
+
     dispatch(loadAlbum(data.Pictures)); //Check this
 }
 
@@ -55,7 +55,8 @@ const picturesReducer = (state=initialState, action) => {
     let newState = {};
     switch(action.type){
         case LOAD_ALBUM:
-
+            let newPictures = [...state.pictures, ...action.pictures];
+            newState = {pictures: newPictures};
             return newState;
         case CLEAR_PICTURES:
             newState = {pictures: []};
