@@ -3,7 +3,7 @@ import {csrfFetch} from '../../../store/csrf';
 import CommentInput from "./CommentInput"
 import CommentListComponent from "./CommentListComponent"
 
-const CommentComponent = ({pictureid, username}) => {
+const CommentComponent = ({pictureid, username, setTotalComments}) => {
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
@@ -13,7 +13,12 @@ const CommentComponent = ({pictureid, username}) => {
             setComments(data);
         }
         fetchComments();
-    },[pictureid])
+    },[pictureid, setTotalComments])
+
+    useEffect(() => {
+        setTotalComments(comments.length);
+        console.log(comments.length);
+    }, [comments, setTotalComments])
 
     return (
         <div className='comment-component'>

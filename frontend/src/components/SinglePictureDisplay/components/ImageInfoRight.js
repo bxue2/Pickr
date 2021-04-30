@@ -1,11 +1,12 @@
 //Misc info + tags
 
 
-const ImageInfoRight = () => {
+const ImageInfoRight = ({totalComments}) => {
     return (
         <div className='image-info-right'>
             <div className='image-info-right_misc-info'>
-                Add # of comments, date uploaded here
+                <h2>Comments: {totalComments}</h2>
+                Add date uploaded here
             </div>
             <div className='black-line' />
             <div className='image-info-right_tags'>

@@ -15,7 +15,7 @@ const ImageInfoLeft = (props) => {
         <div className='image-info-left'>
             <ImageEditInfo {...props}/>
 
-            <CommentComponent pictureid={props.pictureid} username={props.username}/>
+            <CommentComponent pictureid={props.pictureid} username={props.username}  setTotalComments={props.setTotalComments}/>
         </div>
     )
 }

@@ -11,11 +11,11 @@ const SinglePictureDisplay = () => {
     let [description, setDescription] = useState('');
     let [username, setUsername] = useState('');
     let [imageOwnerId, setImageOwnerId] = useState(0);
-
+    let [totalComments, setTotalComments] = useState(0);
     const {pictureid} = useParams();
 
     const passStates = {
-        name, setName, description, setDescription, imageOwnerId, pictureid, username
+        name, setName, description, setDescription, imageOwnerId, pictureid, username, totalComments, setTotalComments
     }
 
     useEffect(() => {
@@ -41,7 +41,7 @@ const SinglePictureDisplay = () => {
 
             <div className='image-bottom-section'>
                 <ImageInfoLeft {...passStates}/>
-                <ImageInfoRight />
+                <ImageInfoRight totalComments={totalComments}/>
             </div>
 
 

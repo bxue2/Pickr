@@ -116,6 +116,11 @@
 .single-comment-div:hover{
     background-color: rgb(230,230,230);
 }
+.single-comment-div a{
+    color: rgb(76, 53, 177);
+    font-size: 18px;
+    font-weight: 600;
+}
 
 /* Info right sidebar */
 
