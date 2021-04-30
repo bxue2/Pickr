@@ -34,7 +34,8 @@ const ProfilePage = () => {
                 case "albums":
                     return (<AlbumComponent albums={userData.Albums}/>)
                 default:
-                    return (<AboutComponent />)
+                    return (<PicturesComponent pictures={userData.Pictures}/>)
+                    // return (<AboutComponent />)
             }
         }
         setCurrentComponent(showComponent());
