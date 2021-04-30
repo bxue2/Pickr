@@ -11,7 +11,7 @@ const initialState = { pictures: []}
 
 const loadAlbum = (pictures) => {
     return {
-        type: LOAD_PICTURES,
+        type: LOAD_ALBUM,
         pictures
     }
 }
@@ -62,18 +62,18 @@ const picturesReducer = (state=initialState, action) => {
             newState = {pictures: []};
             return newState;
         case REMOVE_PICTURE:
-            let newAlbum = []
+            let removeAlbum = []
             for(let i = 0; i < state.pictures.length; i++){
                 if(state.pictures[i].id !== action.pictureid){
-                    newAlbum.push(state.pictures[i]);
+                    removeAlbum.push(state.pictures[i]);
                 }
             }
-            newState = {pictures: newAlbum};
+            newState = {pictures: removeAlbum};
             return newState;
         case ADD_PICTURE:
-            let newAlbum = [...state.pictures];
-            newAlbum.push(action.picture);
-            newState = {pictures: newAlbum};
+            let addAlbum = [...state.pictures];
+            addAlbum.push(action.picture);
+            newState = {pictures: addAlbum};
             return newState;
         default:
             return state;
