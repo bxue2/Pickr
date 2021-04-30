@@ -1,0 +1,13 @@
+
+.album-display-header{
+    width: 100%;
+    height: 250px;
+    background-color: rgb(213, 214, 255);
+}
+
+.album-header_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

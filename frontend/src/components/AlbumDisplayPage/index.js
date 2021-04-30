@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom';
 import {csrfFetch} from '../../store/csrf';
 import AlbumDisplayHeader from './components/AlbumDisplayHeader';
 import AlbumDisplayPhotoList from './components/AlbumDisplayPhotoList';
+import './AlbumDisplayPage.css';
 
 const AlbumDisplayPage = () => {
     const [albumName, setAlbumName] = useState('');
@@ -25,7 +26,6 @@ const AlbumDisplayPage = () => {
             setAlbumOwnerId(data.user_id);
             setUsername(data.user_name);
             setPictures(data.Pictures)
-            console.log(data);
         }
         fetchAlbum();
     }, [albumid])
