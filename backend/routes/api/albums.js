@@ -16,7 +16,6 @@ router.get(
           model:Picture
         }]
       });
-      //Probably want to get all attached image Ids as well
       if(album){
         return res.json(album.toJSON())
       }

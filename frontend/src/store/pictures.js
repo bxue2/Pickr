@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 export const LOAD_ALBUM = "pictures/LOAD_ALBUM";
 export const REMOVE_PICTURE = "pictures/REMOVE_PICTURE";
 export const ADD_PICTURE = "items/ADD_PICTURE";
@@ -7,10 +9,10 @@ export const CLEAR_PICTURES = "items/CLEAR_PICTURES"
 
 const initialState = { pictures: []}
 
-const loadAlbum = (albumid) => {
+const loadAlbum = (pictures) => {
     return {
         type: LOAD_PICTURES,
-        albumid
+        pictures
     }
 }
 
@@ -35,7 +37,10 @@ const clearPictures = () => {
 }
 
 export const loadPicturesFromAlbum = (albumid) => async dispatch => {
-    dispatch(loadAlbum(albumid))
+    let response = await csrfFetch(`/api/albums/${albumid}`);
+    let data = await response.json();
+    
+    dispatch(loadAlbum(data.Pictures)); //Check this
 }
 
 export const addPictureToAlbum = (picture) => dispatch => {
@@ -50,7 +55,7 @@ const picturesReducer = (state=initialState, action) => {
     let newState = {};
     switch(action.type){
         case LOAD_ALBUM:
-            newState.user = action.user;
+
             return newState;
         case CLEAR_PICTURES:
             newState = {pictures: []};
