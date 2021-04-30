@@ -9,6 +9,7 @@ import UploadImagePage from './components/UploadImagePage';
 import SinglePictureDisplay from './components/SinglePictureDisplay';
 import ProfilePage from './components/ProfilePage';
 import CreateAlbumPage from './components/CreateAlbumPage';
+import AlbumDisplayPage from './components/AlbumDisplayPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route exact path="/create-album">
             <CreateAlbumPage />
+          </Route>
+          <Route path="/albums/:albumid">
+            <AlbumDisplayPage />
           </Route>
           <Route>
           <h1>Hello from App</h1>
