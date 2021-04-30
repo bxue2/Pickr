@@ -68,9 +68,9 @@ const ImageEditInfo = (props) => {
                     <textarea className='edit-pic-form_desc-input' placeholder='Add description' value={editDesc} onChange={(e) => setEditDesc(e.target.value)}/>
                 </label>
                 <div className='edit-pic-form_buttons'>
-                    <button onClick={deletePicture}>Delete</button>
+                    <button type="button" onClick={deletePicture}>Delete</button>
                     <button type="submit">Save</button>
-                    <button onClick={cancelEdit}>Cancel</button>
+                    <button type="button" onClick={cancelEdit}>Cancel</button>
                 </div>
             </form>
             </>

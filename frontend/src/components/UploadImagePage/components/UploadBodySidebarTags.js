@@ -59,8 +59,8 @@ const UploadBodySidebarTags = ({tags, setTags, selectIndex}) => {
             onChange={(e) => setNewTag(e.target.value)}
             />
             <div>
-                <button onClick={addTag}>Add Tag</button>
-                <button onClick={() => setOpenTagForm(false)}>Cancel</button>
+                <button type="button" onClick={addTag}>Add Tag</button>
+                <button type="button" onClick={() => setOpenTagForm(false)}>Cancel</button>
             </div>
         </div>
         </>

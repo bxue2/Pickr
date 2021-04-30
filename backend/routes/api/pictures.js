@@ -130,7 +130,7 @@ router.post(
       const { user } = req;
       const { name, description, tags} = req.body;
       const imageUrl = await singlePublicFileUpload(req.file);
-      let picture = Picture.uploadImage(name, description, imageUrl, user.id)
+      let picture = await Picture.uploadImage(name, description, imageUrl, user.id)
       //Handle Tags
       console.log(JSON.parse(tags));
       Promise.all(JSON.parse(tags).map(async (tag) =>{
@@ -139,13 +139,13 @@ router.post(
             name: tag
           }
         });
-        console.log(findTag);
+        console.log(picture);
         if(!findTag){
-          findTag = Tag.create({
+          findTag = await Tag.create({
             name: tag
           })
         }
-        PictureTag.create({
+        await PictureTag.create({
           picture_id: picture.id,
           tag_id: findTag.id
         })
