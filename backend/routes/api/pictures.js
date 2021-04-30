@@ -132,14 +132,12 @@ router.post(
       const imageUrl = await singlePublicFileUpload(req.file);
       let picture = await Picture.uploadImage(name, description, imageUrl, user.id)
       //Handle Tags
-      console.log(JSON.parse(tags));
       Promise.all(JSON.parse(tags).map(async (tag) =>{
         let findTag = await Tag.findOne({
           where:{
             name: tag
           }
         });
-        console.log(picture);
         if(!findTag){
           findTag = await Tag.create({
             name: tag
