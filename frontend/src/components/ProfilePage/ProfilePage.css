@@ -41,6 +41,7 @@
 .profile_all-user-pictures{
     display: flex;
     direction: row;
+    flex-wrap: wrap;
 }
 .profile_picture-container{
     margin: 10px;
