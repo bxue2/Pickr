@@ -21,10 +21,10 @@ const removePicture = (pictureid) => {
     }
 }
 
-const addPicture = (pictureid) => {
+const addPicture = (picture) => {
     return {
         type: ADD_PICTURE,
-        pictureid
+        picture
     }
 }
 
@@ -34,21 +34,40 @@ const clearPictures = () => {
     }
 }
 
+export const loadPicturesFromAlbum = (albumid) => async dispatch => {
+    dispatch(loadAlbum(albumid))
+}
+
+export const addPictureToAlbum = (picture) => dispatch => {
+    dispatch(addPicture(picture));
+}
+
+export const clearAlbum = () => dispatch => {
+    dispatch(clearPictures());
+}
 
 const picturesReducer = (state=initialState, action) => {
-    let newState = {...state};
+    let newState = {};
     switch(action.type){
         case LOAD_ALBUM:
             newState.user = action.user;
             return newState;
         case CLEAR_PICTURES:
-            newState = [];
+            newState = {pictures: []};
             return newState;
         case REMOVE_PICTURE:
-            newState = [];
+            let newAlbum = []
+            for(let i = 0; i < state.pictures.length; i++){
+                if(state.pictures[i].id !== action.pictureid){
+                    newAlbum.push(state.pictures[i]);
+                }
+            }
+            newState = {pictures: newAlbum};
             return newState;
         case ADD_PICTURE:
-            newState.push("temp");
+            let newAlbum = [...state.pictures];
+            newAlbum.push(action.picture);
+            newState = {pictures: newAlbum};
             return newState;
         default:
             return state;
