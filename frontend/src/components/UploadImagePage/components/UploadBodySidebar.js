@@ -1,3 +1,5 @@
+const { default: UploadBodySidebarTags } = require("./UploadBodySidebarTags");
+
 const UploadBodySidebar = (props) => {
     const {
         names, descriptions, setDescriptions, selectIndex, setNames
@@ -37,7 +39,10 @@ const UploadBodySidebar = (props) => {
                                 }}/>
                             </label>
                         </li>
-                        <li>Tags</li>
+                        <li>
+                            Tags:
+                            <UploadBodySidebarTags />
+                        </li>
                     </ul>
                 </form>
             </>

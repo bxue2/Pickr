@@ -13,7 +13,7 @@ router.get(
   "/tags",
   asyncHandler(async (req, res) => {
     let tags = await Tag.findAll();
-    return res.json(JSON.stringify(tags.toJSON()));
+    return res.json(tags.toJSON());
   })
 )
 
@@ -23,8 +23,12 @@ router.get(
     "/tags/:tagid",
     asyncHandler(async (req, res) => {
         const {tagid} = req.body;
-        let tag = await Tag.findByPk(tagid);
-        return res.json(JSON.stringify(tag.toJSON()));
+        let tag = await Tag.findByPk(tagid, {
+          include:{
+            model: Picture
+          }
+        });
+        return res.json(tag.toJSON());
     })
   )
 
