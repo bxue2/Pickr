@@ -76,6 +76,42 @@ li{
     border-bottom: 2px solid rgba(200, 200, 200, 1);
 }
 
+/* Sidebar tag section */
+.upload-sidebar-tags{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.upload-tag-container{
+    border: 1px solid rgba(255, 249, 218, 0.8);
+    background-color: cornflowerblue;
+    height: 30px;
+    padding: 5px;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+
+.add-tag-button{
+    align-self: center;
+    margin-top: 4px;
+    background-color: black;
+}
+
+.add-tag-form{
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-tag-form *{
+    margin-top: 5px;
+}
+
+.add-tag-form.hidden{
+    visibility: hidden;
+    position: absolute;
+}
+
 /* Upload body file list */
 
 .upload-body-file-list{
