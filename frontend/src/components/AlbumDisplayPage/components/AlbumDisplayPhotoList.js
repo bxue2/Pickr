@@ -11,6 +11,7 @@ const AlbumDisplayPhotoList = ({pictures}) => {
         <>
             <div className='album-display-pictures'>
                 {pictures.map((picture) => {
+                    console.log(picture);
                     return (
                             <div
                                 key={picture.id}
