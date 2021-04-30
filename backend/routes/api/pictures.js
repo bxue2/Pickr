@@ -2,7 +2,7 @@ const express = require('express')
 const asyncHandler = require('express-async-handler');
 
 const { requireAuth } = require('../../utils/auth');
-const { Picture, User } = require('../../db/models');
+const { Picture, User, Tag, PictureTag } = require('../../db/models');
 
 const {singlePublicFileUpload, singleMulterUpload, singlePublicFileDelete} = require('../../aswS3');
 
@@ -128,9 +128,29 @@ router.post(
     singleMulterUpload("image"),
     asyncHandler(async (req, res) => {
       const { user } = req;
-      const { name, description } = req.body;
+      const { name, description, tags} = req.body;
       const imageUrl = await singlePublicFileUpload(req.file);
-      Picture.uploadImage(name, description, imageUrl, user.id)
+      let picture = Picture.uploadImage(name, description, imageUrl, user.id)
+      //Handle Tags
+      console.log(JSON.parse(tags));
+      Promise.all(JSON.parse(tags).map(async (tag) =>{
+        let findTag = await Tag.findOne({
+          where:{
+            name: tag
+          }
+        });
+        console.log(findTag);
+        if(!findTag){
+          findTag = Tag.create({
+            name: tag
+          })
+        }
+        PictureTag.create({
+          picture_id: picture.id,
+          tag_id: findTag.id
+        })
+      }))
+
       return res.json({
         user,
       });

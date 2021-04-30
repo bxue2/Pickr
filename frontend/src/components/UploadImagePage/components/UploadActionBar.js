@@ -15,6 +15,7 @@ const UploadActionBar = (props) => {
             formData.append('name', names[index]);
             formData.append('description', descriptions[index]);
             formData.append('image', pic);
+            formData.append('tags', JSON.stringify(tags[index]));
             let response = await csrfFetch('/api/pictures', {
                 method: 'POST',
                 headers: {
