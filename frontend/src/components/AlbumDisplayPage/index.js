@@ -24,7 +24,7 @@ const AlbumDisplayPage = () => {
             setDescription(data.description);
             setAlbumOwnerId(data.user_id);
             setUsername(data.user_name);
-            setPictures(data.Picture)
+            setPictures(data.Pictures)
             console.log(data);
         }
         fetchAlbum();

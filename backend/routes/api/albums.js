@@ -2,7 +2,7 @@ const express = require('express')
 const asyncHandler = require('express-async-handler');
 
 const { requireAuth } = require('../../utils/auth');
-const { Album, AlbumPicture } = require('../../db/models');
+const { Album, AlbumPicture, Picture } = require('../../db/models');
 
 const router = express.Router();
 
@@ -13,9 +13,10 @@ router.get(
       const {albumid} = req.params;
       let album = await Album.findByPk(albumid, {
         include:[{
-          model:Picture
+          model: Picture
         }]
       });
+      console.log(album.Pictures);
       if(album){
         return res.json(album.toJSON())
       }
