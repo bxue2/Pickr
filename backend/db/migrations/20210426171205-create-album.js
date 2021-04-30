@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING(100)
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(10000)
       },
       user_id: {
         type: Sequelize.INTEGER,
