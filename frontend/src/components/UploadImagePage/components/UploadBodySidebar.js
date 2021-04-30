@@ -41,7 +41,7 @@ const UploadBodySidebar = (props) => {
                         </li>
                         <li>
                             Tags:
-                            <UploadBodySidebarTags />
+                            <UploadBodySidebarTags tags={props.tags} setTags={props.setTags}/>
                         </li>
                     </ul>
                 </form>

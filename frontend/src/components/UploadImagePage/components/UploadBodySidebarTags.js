@@ -23,11 +23,18 @@ const UploadBodySidebarTags = ({tags, setTags}) => {
         setNewTag('');
     }
 
+    let allTags = (
+        tags.map((tag) => {
+            return (<UploadTagContainer key={tag} tagName={tag}/>)
+        })
+    );
+    console.log(tags);
     return (
         <>
         <div className='upload-sidebar-tags'>
-            <UploadTagContainer tagName='Bob'/>
-            <UploadTagContainer tagName='Bob2'/>
+            {/* <UploadTagContainer tagName='Bob'/>
+            <UploadTagContainer tagName='Bob2'/> */}
+            {allTags}
             <div className='add-tag-button' onClick={openAddTagForm}>
                 <i className="far fa-plus-square"></i>
             </div>
