@@ -10,4 +10,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
+}
+
+.album-header_info h3{
+    font-size: 30;
+    font-weight: 600;
 }
