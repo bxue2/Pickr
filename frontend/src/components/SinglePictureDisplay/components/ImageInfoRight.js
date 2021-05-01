@@ -1,7 +1,20 @@
 //Misc info + tags
+const ImageInfoRight = ({totalComments, tags}) => {
 
+    const TagContainer = ({tagName}) => {
+        return (
+            <div className='upload-tag-container' onClick={()=>{}}>
+                {tagName}
+            </div>
+        )
+    }
 
-const ImageInfoRight = ({totalComments}) => {
+    let allTags = (
+        tags.map((tag) => {
+            return (<TagContainer key={tag.id} tagName={tag.name}/>)
+        })
+    )
+
     return (
         <div className='image-info-right'>
             <div className='image-info-right_misc-info'>
@@ -11,6 +24,9 @@ const ImageInfoRight = ({totalComments}) => {
             <div className='black-line' />
             <div className='image-info-right_tags'>
                 Tags:
+                <div className='image-info-tags'>
+                    {allTags}
+                </div>
             </div>
         </div>
     )

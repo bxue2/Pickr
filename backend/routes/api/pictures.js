@@ -56,16 +56,15 @@ router.get(
   asyncHandler(async (req, res) => {
     const {pictureid} = req.params;
     let picture = await Picture.findByPk(pictureid, {
-      include: User
+      include: [{
+        model: Tag
+      },
+      {
+        model: User
+      }]
     });
     if(picture){
-      return res.json({
-        name: picture.name,
-        description: picture.description,
-        image_url:picture.image_url,
-        user_id: picture.user_id,
-        user_name: picture.User.username
-      })
+      return res.json(picture.toJSON())
     } else{
       return res.status(400).send({
         message: 'Picture not found.'

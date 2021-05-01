@@ -12,6 +12,7 @@ const SinglePictureDisplay = () => {
     let [username, setUsername] = useState('');
     let [imageOwnerId, setImageOwnerId] = useState(0);
     let [totalComments, setTotalComments] = useState(0);
+    let [tags, setTags] = useState([]);
     const {pictureid} = useParams();
 
     const passStates = {
@@ -26,7 +27,8 @@ const SinglePictureDisplay = () => {
             setName(data.name);
             setDescription(data.description);
             setImageOwnerId(data.user_id);
-            setUsername(data.user_name);
+            setUsername(data.User.username);
+            setTags(data.Tags);
         }
         fetchData();
     }, [pictureid])
@@ -41,7 +43,7 @@ const SinglePictureDisplay = () => {
 
             <div className='image-bottom-section'>
                 <ImageInfoLeft {...passStates}/>
-                <ImageInfoRight totalComments={totalComments}/>
+                <ImageInfoRight totalComments={totalComments} tags={tags}/>
             </div>
 
 
