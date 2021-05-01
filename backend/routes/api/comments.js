@@ -30,7 +30,6 @@ router.get(
 //Returns all comments for a picture
 router.get("/picture/:pictureid",
   asyncHandler(async (req, res) => {
-    console.log("Reached")
     const {pictureid} = req.params;
       let comments = await Comment.findAll({
         where:{

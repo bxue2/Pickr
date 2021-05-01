@@ -13,9 +13,9 @@ const CreateAlbumBody = ({unusedPictures, addedPictures, setAddedPictures}) => {
     const handleDragOver = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        if(e.target.class === "create-album_picture-container"){
-            console.log("Dragover");
-        }
+        // if(e.target.class === "create-album_picture-container"){
+        //     console.log("Dragover");
+        // }
     }
     //Check if picture is already in album
     const checkPictureExists = (picture) => {

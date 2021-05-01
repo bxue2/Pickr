@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 // import {useSelector} from 'react-redux';
 import { csrfFetch } from '../../store/csrf';
 import PicturesComponent from './components/PicturesComponent';
-import AboutComponent from './components/AboutComponent';
+// import AboutComponent from './components/AboutComponent';
 import AlbumComponent from './components/AlbumComponent';
 import ProfileHeader from './components/ProfileHeader';
 import ProfileNavBar from './components/ProfileNavBar';

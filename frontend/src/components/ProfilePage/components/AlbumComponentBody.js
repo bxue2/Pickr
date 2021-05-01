@@ -11,19 +11,18 @@ const AlbumComponentBody = ({albums}) => {
     if(albums.length > 0){
         content = (
             albums.map((album) => {
-                console.log(album);
-            return (
-                <div
-                    key={album.id}
-                    className='profile_album-container'
-                    onClick={(e) => {
-                        e.preventDefault()
-                        redirectToAlbum(album)
-                    }}
-                >
-                        <span>{album.name}</span>
-                </div>
-            )
+                return (
+                    <div
+                        key={album.id}
+                        className='profile_album-container'
+                        onClick={(e) => {
+                            e.preventDefault()
+                            redirectToAlbum(album)
+                        }}
+                    >
+                            <span>{album.name}</span>
+                    </div>
+                )
         }))
     }
     return (

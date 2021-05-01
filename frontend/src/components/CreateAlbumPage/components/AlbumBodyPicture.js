@@ -12,9 +12,9 @@ const AlbumBodyPicture = ({addedPictures, setAddedPictures, picture, index}) => 
     const handleDragOver = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        if(e.target.class === "create-album_picture-container"){
-            console.log("Dragover");
-        }
+        // if(e.target.class === "create-album_picture-container"){
+        //     console.log("Dragover");
+        // }
     }
     //Check if picture is already in album
     const swapPictureOrder = (swapPic) => {
@@ -22,11 +22,9 @@ const AlbumBodyPicture = ({addedPictures, setAddedPictures, picture, index}) => 
         let currentIndex = -1;
         for(let i = 0; i < addedPictures.length; i++){
             if(picture.id === addedPictures[i].id){
-                console.log("current", i);
                 currentIndex = i;
             }
             if(swapPic.id === addedPictures[i].id){
-                console.log("swap",i)
                 swapIndex = i;
             }
         }

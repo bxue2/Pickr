@@ -8,15 +8,14 @@ const CreateAlbumSidebar = ({albumName, setAlbumName, albumDesc, setAlbumDesc, a
         e.preventDefault();
         if(addedPictures.length > 0){
             let pictureIds = addedPictures.map((picture) => picture.id);
-            let response = await csrfFetch('/api/albums', {
+            await csrfFetch('/api/albums', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({name: albumName, description: albumDesc, pictures: pictureIds})
             });
-            const data = await response.json();
-            console.log(data);
+            // const data = await response.json();
             history.push('/');
         }
     }

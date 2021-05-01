@@ -17,7 +17,6 @@ const CommentComponent = ({pictureid, username, setTotalComments}) => {
 
     useEffect(() => {
         setTotalComments(comments.length);
-        console.log(comments.length);
     }, [comments, setTotalComments])
 
     return (

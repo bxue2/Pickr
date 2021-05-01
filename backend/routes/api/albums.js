@@ -19,7 +19,6 @@ router.get(
           model: User
         }]
       });
-      console.log(album.User.username);
       if(album){
         return res.json(album.toJSON())
       }

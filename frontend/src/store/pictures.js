@@ -1,7 +1,7 @@
 import { csrfFetch } from "./csrf";
 
 export const LOAD_ALBUM = "pictures/LOAD_ALBUM";
-export const REMOVE_PICTURE = "pictures/REMOVE_PICTURE";
+// export const REMOVE_PICTURE = "pictures/REMOVE_PICTURE";
 export const ADD_PICTURE = "items/ADD_PICTURE";
 export const CLEAR_PICTURES = "items/CLEAR_PICTURES"
 
@@ -16,12 +16,12 @@ const loadAlbum = (pictures) => {
     }
 }
 
-const removePicture = (pictureid) => {
-    return {
-        type: REMOVE_PICTURE,
-        pictureid
-    }
-}
+// const removePicture = (pictureid) => {
+//     return {
+//         type: REMOVE_PICTURE,
+//         pictureid
+//     }
+// }
 
 const addPicture = (picture) => {
     return {
@@ -61,15 +61,15 @@ const picturesReducer = (state=initialState, action) => {
         case CLEAR_PICTURES:
             newState = {pictures: []};
             return newState;
-        case REMOVE_PICTURE:
-            let removeAlbum = []
-            for(let i = 0; i < state.pictures.length; i++){
-                if(state.pictures[i].id !== action.pictureid){
-                    removeAlbum.push(state.pictures[i]);
-                }
-            }
-            newState = {pictures: removeAlbum};
-            return newState;
+        // case REMOVE_PICTURE:
+        //     let removeAlbum = []
+        //     for(let i = 0; i < state.pictures.length; i++){
+        //         if(state.pictures[i].id !== action.pictureid){
+        //             removeAlbum.push(state.pictures[i]);
+        //         }
+        //     }
+        //     newState = {pictures: removeAlbum};
+        //     return newState;
         case ADD_PICTURE:
             let addAlbum = [...state.pictures];
             addAlbum.push(action.picture);

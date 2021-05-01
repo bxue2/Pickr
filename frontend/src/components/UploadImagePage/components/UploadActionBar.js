@@ -16,15 +16,15 @@ const UploadActionBar = (props) => {
             formData.append('description', descriptions[index]);
             formData.append('image', pic);
             formData.append('tags', JSON.stringify(tags[index]));
-            let response = await csrfFetch('/api/pictures', {
+            await csrfFetch('/api/pictures', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
                 body: formData
             })
-            const data = await response.json();
-            console.log(data);
+            // const data = await response.json();
+            // console.log(data);
         }))
         history.push('/');
     }

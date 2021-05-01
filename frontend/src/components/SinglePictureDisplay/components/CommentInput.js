@@ -5,7 +5,6 @@ const CommentInput = ({comments, setComments, pictureid}) => {
     const [newComment, setNewComment] = useState();
     const submitComment = async (e) => {
         e.preventDefault();
-        console.log(newComment);
         const response = await csrfFetch('/api/comments', {
             method: 'POST',
             headers: {
