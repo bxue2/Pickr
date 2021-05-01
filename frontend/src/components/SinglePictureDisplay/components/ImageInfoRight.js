@@ -3,7 +3,7 @@ const ImageInfoRight = ({totalComments, tags}) => {
 
     const TagContainer = ({tagName}) => {
         return (
-            <div className='upload-tag-container' onClick={()=>{}}>
+            <div className='image-tag-container' onClick={()=>{}}>
                 {tagName}
             </div>
         )
@@ -23,7 +23,7 @@ const ImageInfoRight = ({totalComments, tags}) => {
             </div>
             <div className='black-line' />
             <div className='image-info-right_tags'>
-                Tags:
+                <h3>Tags:</h3>
                 <div className='image-info-tags'>
                     {allTags}
                 </div>

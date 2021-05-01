@@ -143,3 +143,26 @@
     margin: 30px;
     flex-grow: 1;
 }
+
+.image-info-right_tags h3{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.image-info-tags{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-tag-container{
+    border: 1px solid rgba(255, 249, 218, 0.8);
+    background-color: cornflowerblue;
+    height: 30px;
+    padding: 5px;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+
+.image-tag-container:hover{
+    background-color: rgb(179, 198, 233);
+}
