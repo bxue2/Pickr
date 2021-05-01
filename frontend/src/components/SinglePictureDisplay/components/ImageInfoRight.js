@@ -1,5 +1,5 @@
 //Misc info + tags
-const ImageInfoRight = ({totalComments, tags}) => {
+const ImageInfoRight = ({totalComments, tags, createdAt}) => {
 
     const TagContainer = ({tagName}) => {
         return (
@@ -19,7 +19,7 @@ const ImageInfoRight = ({totalComments, tags}) => {
         <div className='image-info-right'>
             <div className='image-info-right_misc-info'>
                 <h2>Comments: {totalComments}</h2>
-                Add date uploaded here
+                <h2>Created At: {createdAt}</h2>
             </div>
             <div className='black-line' />
             <div className='image-info-right_tags'>
