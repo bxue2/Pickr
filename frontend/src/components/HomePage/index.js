@@ -8,7 +8,7 @@ const HomePage = () => {
     else{
         return (
             <div className='home-display'>
-                "Welcome to Pickr"
+                Welcome to Pickr
             </div>
         );
     }
