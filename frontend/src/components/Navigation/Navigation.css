@@ -19,6 +19,7 @@
     justify-self: flex-end;
     display: flex;
     margin-right: 40px;
+    align-items: center;
 }
 
 .header-bar-right li{
