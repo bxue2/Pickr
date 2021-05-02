@@ -29,28 +29,36 @@ const LoginForm = () => {
 
     return (
         <div className="input-form">
+            <h2>Sign into Pickr:</h2>
             <form onSubmit={submitHandler}>
                 <ul>
                     {errors.map( (error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <label>
-                    Username/Email:
-                    <input
-                        type="text"
-                        value={credential}
-                        onChange={(e) => setCredential(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Password:
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </label>
+                <div className='input-form-field'>
+                    <label>
+                        Username/Email:
+                        <input
+                            className='input-form-field_input'
+                            type="text"
+                            value={credential}
+                            onChange={(e) => setCredential(e.target.value)}
+                            required
+                        />
+                    </label>
+                </div>
+                <div className='input-form-field'>
+                    <label>
+                        Password:
+                        <input
+                            className='input-form-field_input'
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </label>
+                </div>
+
                 <button type="submit">Log In</button>
             </form>
         </div>
