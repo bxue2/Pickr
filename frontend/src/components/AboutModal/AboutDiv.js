@@ -6,6 +6,7 @@ const AboutDiv = () => {
         <div className='about-div'>
             <h2>About:</h2>
             <h4>Brian Xue</h4>
+            <div className='profile-pic' />
             <span>
                 <h3>{"Github: "}</h3>
                 <Link to='https://github.com/bxue2'>https://github.com/bxue2</Link>
