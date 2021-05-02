@@ -49,8 +49,18 @@
 .create-album-body{
     background-color: rgba(0,100,0,0.5);
     flex-grow: 1;
-
+    padding: 20px;
     display: flex;
+}
+
+.drag-picture-here{
+    margin: auto;
+    position: relative;
+    font-size: 30px;
+    font-weight: 600;
+    /* color: rgb(150,150,150); */
+    border: 4px dashed rgb(200,200,200);
+    padding: 10px;
 }
 
 /* Footer section */

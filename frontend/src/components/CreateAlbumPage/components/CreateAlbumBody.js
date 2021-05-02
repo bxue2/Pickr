@@ -52,6 +52,11 @@ const CreateAlbumBody = ({unusedPictures, addedPictures, setAddedPictures}) => {
                     return <AlbumBodyPicture addedPictures={addedPictures} setAddedPictures={setAddedPictures} picture={picture} index={index} key={index}/>
                 })
             }
+            {addedPictures.length==0 && (
+                <div className='drag-picture-here'>
+                    Drag Photos Here to Add to Album
+                </div>
+            )}
         </div>
     )
 }

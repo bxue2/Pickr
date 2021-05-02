@@ -56,6 +56,9 @@ const CreateAlbumFooterList = ({unusedPictures, addedPictures, setAddedPictures}
                                     let transfer = {picture, index: -1};
                                     e.dataTransfer.setData('text', JSON.stringify(transfer));
                                 }}
+                                onDragEnd={(e) => {
+                                    
+                                }}
                                 style={{
                                     backgroundImage: `url(${picture.image_url})`
                                 }}
