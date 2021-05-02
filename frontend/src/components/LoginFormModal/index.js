@@ -14,7 +14,7 @@ const LoginFormModal = () => {
 
     return (
         <>
-            <button onClick={openModal}>Log In</button>
+            <div className='login-button' onClick={openModal}>Log In</div>
             {showModal && (
                 <Modal onClose={closeModal}>
                     <LoginForm></LoginForm>

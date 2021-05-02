@@ -31,7 +31,7 @@ const Navigation = ({isLoaded}) => {
                     <LoginFormModal />
                 </li>
                 <li>
-                    <NavLink to="signup">Sign Up</NavLink>
+                    <NavLink className='signup-button' to="signup">Sign Up</NavLink>
                 </li>
             </>
         );
