@@ -34,7 +34,7 @@ const LoginForm = () => {
                 <ul>
                     {errors.map( (error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <div className='input-form-field'>
+                <div className='login-input-form-field'>
                     <label>
                         Username/Email:
                         <input
@@ -46,7 +46,7 @@ const LoginForm = () => {
                         />
                     </label>
                 </div>
-                <div className='input-form-field'>
+                <div className='login-input-form-field'>
                     <label>
                         Password:
                         <input

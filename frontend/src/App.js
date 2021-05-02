@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Route, Switch} from 'react-router-dom';
 // import LoginFormPage from './components/LoginFormModal'
-import SignUpFormPage from './components/SignUpFormPage'
+// import SignUpFormPage from './components/SignUpFormPage'
 import {useDispatch} from 'react-redux';
 import * as sessionActions from './store/session'
 import Navigation from './components/Navigation';
@@ -38,9 +38,9 @@ function App() {
           <Route path="/pictures/:pictureid">
             <SinglePictureDisplay />
           </Route>
-          <Route exact path="/signup">
+          {/* <Route exact path="/signup">
             <SignUpFormPage />
-          </Route>
+          </Route> */}
           <Route exact path="/upload-image">
             <UploadImagePage />
           </Route>

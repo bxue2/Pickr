@@ -14,7 +14,7 @@ const SignUpFormModal = () => {
 
     return (
         <>
-            <div className='signup-button' onClick={openModal}>Log In</div>
+            <div className='signup-button' onClick={openModal}>Sign Up</div>
             {showModal && (
                 <Modal onClose={closeModal}>
                     <SignUpForm></SignUpForm>

@@ -39,18 +39,3 @@
     padding: 5px;
     margin-right: 40px;
 }
-
-.signup-button{
-    height: 30px;
-    padding: 5px 5px;
-    border: 3px solid rgb(64, 141, 177);
-    background-color: rgb(210, 241, 255);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-}
-
-.signup-button:hover{
-    border: 3px solid rgb(189, 91, 136);
-}
