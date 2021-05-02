@@ -11,6 +11,7 @@
 
 .signup-button:hover{
     border: 3px solid rgb(189, 91, 136);
+    cursor: pointer;
 }
 
 .sign-up-form {

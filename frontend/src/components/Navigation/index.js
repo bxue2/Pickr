@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink, Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from "../LoginFormModal";
@@ -10,6 +10,7 @@ import AboutModal from '../AboutModal';
 
 const Navigation = ({isLoaded}) => {
     let sessionUser = useSelector(state => state.session.user);
+    let history = useHistory();
     let sessionLinks;
     if(sessionUser){
         sessionLinks = (
@@ -39,11 +40,17 @@ const Navigation = ({isLoaded}) => {
             </>
         );
     }
+
+    const logoClick = () => {
+        history.push('/');
+    }
+
     return (
         <div className='header-bar'>
             <ul className='header-bar-left'>
                 <li>
-                    <NavLink className='logoLink' exact to="/">Home</NavLink>
+                    <div className='logo-link' onClick={logoClick}>
+                    </div>
                 </li>
                 <li>
                     <AboutModal />
