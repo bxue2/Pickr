@@ -12,6 +12,12 @@
 .header-bar-left{
     list-style-type: none;
     margin-left: 40px;
+    display: flex;
+    align-items: center;
+    width: 200px;
+}
+.header-bar-left li{
+    margin-right: 20px
 }
 
 .header-bar-right{

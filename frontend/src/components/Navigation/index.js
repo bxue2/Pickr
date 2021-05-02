@@ -6,6 +6,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignUpFormModal from '../SignUpFormModal';
 import SearchBar from './SearchBar';
 import './Navigation.css'
+import AboutModal from '../AboutModal';
 
 const Navigation = ({isLoaded}) => {
     let sessionUser = useSelector(state => state.session.user);
@@ -42,7 +43,10 @@ const Navigation = ({isLoaded}) => {
         <div className='header-bar'>
             <ul className='header-bar-left'>
                 <li>
-                    <NavLink exact to="/">Home</NavLink>
+                    <NavLink className='logoLink' exact to="/">Home</NavLink>
+                </li>
+                <li>
+                    <AboutModal />
                 </li>
             </ul>
             <ul className='header-bar-right'>
