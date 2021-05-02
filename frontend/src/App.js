@@ -10,6 +10,7 @@ import SinglePictureDisplay from './components/SinglePictureDisplay';
 import ProfilePage from './components/ProfilePage';
 import CreateAlbumPage from './components/CreateAlbumPage';
 import AlbumDisplayPage from './components/AlbumDisplayPage';
+import HomePage from './components/HomePage';
 
 function App() {
   const dispatch = useDispatch();
@@ -50,7 +51,7 @@ function App() {
             <AlbumDisplayPage />
           </Route>
           <Route>
-          <h1>Hello from App</h1>
+            <HomePage />
           </Route>
         </Switch>
       )}
