@@ -1,4 +1,5 @@
 //Misc info + tags
+import {convertToDate} from '../../../utils/DateTimeConvert';
 const ImageInfoRight = ({totalComments, tags, createdAt}) => {
 
     const TagContainer = ({tagName}) => {
@@ -19,7 +20,7 @@ const ImageInfoRight = ({totalComments, tags, createdAt}) => {
         <div className='image-info-right'>
             <div className='image-info-right_misc-info'>
                 <h2>Comments: {totalComments}</h2>
-                <h2>Created At: {createdAt}</h2>
+                <h2>Created At: {convertToDate(createdAt)}</h2>
             </div>
             <div className='black-line' />
             <div className='image-info-right_tags'>
