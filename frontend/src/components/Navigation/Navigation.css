@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     width: 200px;
+    margin-right: 40px;
 }
 .header-bar-left li{
     margin-right: 20px
@@ -39,6 +40,61 @@
 .header-bar-right li{
     padding-left: 30px;
 }
+
+.search-bar{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+}
+
+.main-search-bar{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.search-bar button{
+    height: 40px;
+    width: 40px;
+}
+
+.search-bar input{
+    flex-grow: 1;
+    height: 40px;
+    padding-left: 10px;
+}
+
+.option-container{
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.option-container.hidden{
+    display: none;
+}
+
+.search-option{
+    flex-grow: 1;
+    height: 50px;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.search-option.hidden{
+    display: none;
+}
+
+.search-option:hover{
+    background-color: rgb(223, 229, 241);
+}
+
 
 .nav_profile-menu {
     position: absolute;

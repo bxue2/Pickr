@@ -72,10 +72,8 @@ const Navigation = ({isLoaded}) => {
                     <AboutModal />
                 </li>
             </ul>
+            <SearchBar />
             <ul className='header-bar-right'>
-                <li>
-                    <SearchBar />
-                </li>
                 {isLoaded && sessionLinks}
             </ul>
         </div>
