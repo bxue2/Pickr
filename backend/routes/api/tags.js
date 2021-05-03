@@ -1,8 +1,8 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler');
 
-const { Tag } = require('../../db/models');
-
+const { Tag, Picture, User } = require('../../db/models');
+const {Op} = require('sequelize');
 const router = express.Router();
 
 //Lower importance mvp, handle this later
@@ -14,6 +14,32 @@ router.get(
   asyncHandler(async (req, res) => {
     let tags = await Tag.findAll();
     return res.json(tags.toJSON());
+  })
+)
+
+// GET /api/tags/query/
+//Pass in a tag name, will find pictures associated with tag
+//body should have an array of tags
+router.get(
+  "/query/:search",
+  asyncHandler(async (req, res) => {
+    const {search} = req.params;
+    let pictures = await Picture.findAll({
+      include:[
+        {
+          model: Tag,
+          where:{
+            name:{
+              [Op.iLike]: search
+            }
+          }
+        },
+        {
+          model: User
+        }
+      ]
+    });
+    return res.json(JSON.stringify(pictures));
   })
 )
 

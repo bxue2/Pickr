@@ -15,10 +15,11 @@ const SearchResults = () => {
             if(querytype === 'name'){
                 let response = await csrfFetch(`/api/pictures/query/name/${querystring}`);
                 let data = await response.json();
-                console.log(data);
                 setPictures(JSON.parse(data));
             } else if(querytype === 'tag'){
-
+                let response = await csrfFetch(`/api/tags/query/${querystring}`);
+                let data = await response.json();
+                setPictures(JSON.parse(data));
             }
         }
         fetchQuery();
