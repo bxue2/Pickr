@@ -107,9 +107,14 @@ router.post(
         comment,
         picture_id,
         user_id: user.id
+      });
+      const newCommentWithUser = await Comment.findByPk(newComment.id, {
+        include:{
+          model: User
+        }
       })
 
-      return res.json(newComment.toJSON());
+      return res.json(newCommentWithUser.toJSON());
     })
   );
 
