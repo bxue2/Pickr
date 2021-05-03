@@ -13,14 +13,16 @@ const UploadImagePage = () => {
     let [uploading, setUploading] = useState(false);
     const stateChildren = {
         imageUrls, setImageUrls, imageFiles, setImageFiles, names, setNames,
-        descriptions, setDescriptions, selectIndex, setSelectIndex, tags, setTags
+        descriptions, setDescriptions, selectIndex, setSelectIndex, tags, setTags, setUploading
     }
 
     return (
         <>
             {uploading && (
-                <div className='upload-overlay'></div>
-            )}
+                <div className='upload-overlay'>
+                    <h1>Uploading...</h1>
+                </div>
+            )} 
             <UploadActionBar {...stateChildren}/>
             <UploadBody {...stateChildren}/>
         </>

@@ -5,11 +5,12 @@ const UploadActionBar = (props) => {
     let history = useHistory();
     const {
         selectIndex, setSelectIndex, imageFiles, imageUrls, names, descriptions,
-        setImageFiles, setImageUrls, setNames, setDescriptions, tags, setTags
+        setImageFiles, setImageUrls, setNames, setDescriptions, tags, setTags, setUploading
     } = props;
 
     const submitHandler = async (e) => {
         e.preventDefault();
+        setUploading(true);
         await Promise.all(imageFiles.map(async (pic, index) => {
             const formData = new FormData();
             formData.append('name', names[index]);

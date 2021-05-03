@@ -2,6 +2,22 @@ li{
     list-style-type: none;
 }
 
+.upload-overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-overlay h1{
+    color: white;
+    font-weight: 600;
+    font-size: 40px;
+}
+
 .upload-file{
     width: 300px;
     height: 50px;
