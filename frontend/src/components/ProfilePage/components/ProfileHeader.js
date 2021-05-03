@@ -1,12 +1,13 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 const ProfileHeader = ({userData}) => {
-    console.log(userData);
-    let backImageUrl = null;
-    if(userData.Pictures && userData.Pictures.length > 0){
-        let randomNum = Math.floor(Math.random() * userData.Pictures.length);
-        console.log(randomNum);
-        backImageUrl = userData.Pictures[randomNum].image_url;
-    }
+    const [backImageUrl, setBackImageUrl] = useState(null);
+    useEffect(() => {
+        if(userData.Pictures && userData.Pictures.length > 0){
+            let randomNum = Math.floor(Math.random() * userData.Pictures.length);
+            setBackImageUrl(userData.Pictures[randomNum].image_url);
+        }
+    }, [userData.Pictures]);
+
     return (
         <div
             className='profile-header'

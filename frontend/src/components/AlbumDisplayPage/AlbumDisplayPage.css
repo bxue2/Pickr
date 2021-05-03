@@ -14,8 +14,10 @@
 }
 
 .album-header_info h3{
-    font-size: 30;
+    font-size: 25px;
     font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px black;
 }
 
 .album-display-pictures{
@@ -30,6 +32,7 @@
     background-size: cover;
     border: 1px solid black;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .album-display_picture-container:hover{

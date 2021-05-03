@@ -14,7 +14,7 @@ const AlbumDisplayPage = () => {
     const {albumid} = useParams();
 
     const states = {
-        albumName, setAlbumName, description, setDescription, albumOwnerId, setAlbumOwnerId, username, setUsername, albumid
+        pictures, albumName, setAlbumName, description, setDescription, albumOwnerId, setAlbumOwnerId, username, setUsername, albumid
     }
 
     useEffect(() => {

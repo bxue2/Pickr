@@ -70,6 +70,7 @@
     background-size: cover;
     border: 1px solid black;
     box-sizing: border-box;
+    cursor: pointer;
 }
 .profile_picture-container:hover{
     border-color: red;
@@ -113,6 +114,7 @@
     background-color: cornflowerblue;
     border: 1px solid black;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .profile_album-container:hover{
