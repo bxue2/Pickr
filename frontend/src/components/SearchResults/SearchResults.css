@@ -1,0 +1,39 @@
+.search-results-display{
+    padding: 50px;
+}
+
+h1{
+ margin-bottom: 40px;
+}
+
+.single-result{
+    display: flex;
+    height: 160px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.single-result:hover{
+    background-color: rgb(224, 242, 255);
+}
+
+.image-preview{
+    height: 150px;
+    width: 150px;
+    background-size: cover;
+    margin-right: 30px;
+}
+
+.picture-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.picture-name, .picture-owner{
+    font-size: 20px;
+
+}
+
+.picture-name{
+    margin-bottom: 20px;
+}

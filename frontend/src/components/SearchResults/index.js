@@ -3,6 +3,8 @@ import {csrfFetch} from '../../store/csrf';
 import {useParams} from 'react-router-dom';
 import SingleResult from './components/SingleResult';
 
+import './SearchResults.css';
+
 const SearchResults = () => {
     const [pictures, setPictures] = useState([]);
     const {queryType, queryString} = useParams();
@@ -22,10 +24,11 @@ const SearchResults = () => {
     }, []);
 
     return (
-        <div>
+        <div className='search-results-display'>
+            <h1>Search Results: </h1>
             {pictures && pictures.map((picture) => {
                 return (
-                    <SingleResult key={picture.id} url={picture.image_url} name={picture.name} owner={picture.User.username}/>
+                    <SingleResult key={picture.id} picId={picture.id} url={picture.image_url} name={picture.name} owner={picture.User.username}/>
                 )
             })}
 

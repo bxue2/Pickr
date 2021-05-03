@@ -30,7 +30,7 @@ router.get(
 //Pass in a tag name, will find pictures associated with tag
 //body should have an array of tags
 router.get(
-  "/query",
+  "/query/tag/:search",
   asyncHandler(async (req, res) => {
     const {tagNames} = req.body;
     let pictures = await Picture.findAll({
