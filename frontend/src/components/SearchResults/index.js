@@ -25,14 +25,26 @@ const SearchResults = () => {
         fetchQuery();
     }, [querytype, querystring]);
 
+    let content = (
+        <h1>No Pictures Found</h1>
+    );
+    if(pictures && pictures.length > 0){
+        content = pictures.map((picture) => {
+            return (
+                <SingleResult key={picture.id} picId={picture.id} url={picture.image_url} name={picture.name} owner={picture.User.username}/>
+            )
+        })
+    }
+
     return (
         <div className='search-results-display'>
             <h1>Search Results: </h1>
-            {pictures && pictures.map((picture) => {
+            {/* {pictures && pictures.map((picture) => {
                 return (
                     <SingleResult key={picture.id} picId={picture.id} url={picture.image_url} name={picture.name} owner={picture.User.username}/>
                 )
-            })}
+            })} */}
+            {content}
 
         </div>
     );
