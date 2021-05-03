@@ -1,10 +1,12 @@
 //Misc info + tags
 import {convertToDate} from '../../../utils/DateTimeConvert';
+import {useHistory} from 'react-router-dom';
 const ImageInfoRight = ({totalComments, tags, createdAt}) => {
+    const history = useHistory();
 
     const TagContainer = ({tagName}) => {
         return (
-            <div className='image-tag-container' onClick={()=>{}}>
+            <div className='image-tag-container' onClick={()=>{history.push(`/search/tag/${tagName}`);}}>
                 {tagName}
             </div>
         )

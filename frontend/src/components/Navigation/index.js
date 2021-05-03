@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from "../LoginFormModal";
