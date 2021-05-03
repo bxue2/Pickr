@@ -2,12 +2,13 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Users', [
+    return queryInterface.bulkInsert('Albums', [
       {
-        email: 'pickr@user.io',
-        username: 'Pickr',
-        hashedPassword: bcrypt.hashSync('pickPass@1'),
-      }], {returning: true});
+        name: 'Demo Album',
+        description: 'Demo Album Description 1',
+        user_id: 1
+      },
+      ], {});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -16,7 +17,8 @@ module.exports = {
       Return a promise to correctly handle asynchronicity.
 
       Example:
-      return queryInterface.bulkDelete('People', null, {});
+
     */
+      return queryInterface.bulkDelete('Albums', null, {});
   }
 };
