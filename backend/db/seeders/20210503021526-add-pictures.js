@@ -16,11 +16,30 @@ module.exports = {
         user_id: 1
       },
       {
-        name: 'Demo pic 3',
-        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        name: 'Seal pic 2',
+        description: 'I swear it\'s not dead...',
         image_url: 'https://pickrdb.s3.amazonaws.com/1619714179820.JPG',
         user_id: 1
-      },], {});
+      },
+      {
+        name: 'Lake picture',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        image_url: 'https://pickrdb.s3.us-west-1.amazonaws.com/1620027874100.JPG',
+        user_id: 3
+      },
+      {
+        name: 'More Seals',
+        description: 'They never stop sleeping...',
+        image_url: 'https://pickrdb.s3.amazonaws.com/1620027572908.JPG',
+        user_id: 2
+      },
+      {
+        name: 'More water',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        image_url: 'https://pickrdb.s3.us-west-1.amazonaws.com/1620027719015.JPG',
+        user_id: 4
+      },
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {

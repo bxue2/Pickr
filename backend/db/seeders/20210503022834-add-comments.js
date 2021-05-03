@@ -23,6 +23,31 @@ module.exports = {
         picture_id: 2,
         user_id: 4
       },
+      {
+        comment: 'What is it even doing there.',
+        picture_id: 3,
+        user_id: 4
+      },
+      {
+        comment: 'Can you fish here?',
+        picture_id: 4,
+        user_id: 1
+      },
+      {
+        comment: 'No',
+        picture_id: 4,
+        user_id: 3
+      },
+      {
+        comment: 'We suck at naming things.',
+        picture_id: 5,
+        user_id: 3
+      },
+      {
+        comment: 'Accurate title.',
+        picture_id: 6,
+        user_id: 1
+      },
     ], {});
   },
 

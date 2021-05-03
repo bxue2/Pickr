@@ -18,6 +18,12 @@ module.exports = {
       {
         name: 'moo',
       },
+      {
+        name: 'animal'
+      },
+      {
+        name: 'water'
+      }
     ], {});
   },
 
