@@ -6,8 +6,10 @@ import './HomePage.css';
 const HomePage = () => {
     let sessionUser = useSelector(state => state.session.user)
     const [bgImageId, setBgImageId] = useState(0);
+    // let bgImageId = 0;
     useEffect(() => {
-        setTimeout(() => {setBgImageId((bgImageId + 1)%4)}, 6000)
+        let bgChange = setInterval(() => {setBgImageId((bgImageId + 1)%4)}, 6000)
+        return () => clearInterval(bgChange);
     }, [bgImageId])
 
     const openSignUpModal = () => {
