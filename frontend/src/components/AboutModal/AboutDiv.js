@@ -11,6 +11,10 @@ const AboutDiv = () => {
                 <h3>{"Github: "}</h3>
                 <Link to='https://github.com/bxue2'>https://github.com/bxue2</Link>
             </span>
+            <span>
+                <h3>{"Github Repo: "}</h3>
+                <Link to='https://github.com/bxue2/Pickr'>https://github.com/bxue2/Pickr</Link>
+            </span>
         </div>
     )
 }
