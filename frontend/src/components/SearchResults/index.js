@@ -7,21 +7,22 @@ import './SearchResults.css';
 
 const SearchResults = () => {
     const [pictures, setPictures] = useState([]);
-    const {queryType, queryString} = useParams();
-
+    let {querytype, querystring} = useParams();
+    console.log(querytype);
+    console.log(querystring);
     useEffect(() => {
         async function fetchQuery(){
-            // if(queryType='tag'){
-                let response = await csrfFetch(`/api/pictures/query/name/seal`);
+            if(querytype === 'name'){
+                let response = await csrfFetch(`/api/pictures/query/name/${querystring}`);
                 let data = await response.json();
                 console.log(data);
                 setPictures(JSON.parse(data));
-            // } else if(queryType='name'){
+            } else if(querytype === 'tag'){
 
-            // }
+            }
         }
         fetchQuery();
-    }, []);
+    }, [querytype, querystring]);
 
     return (
         <div className='search-results-display'>

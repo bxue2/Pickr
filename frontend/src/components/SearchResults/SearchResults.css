@@ -9,16 +9,20 @@ h1{
 .single-result{
     display: flex;
     height: 160px;
-    margin-top: 10px;
+    margin-top: 5px;
     cursor: pointer;
+    border-top: 1px solid rgb(142, 144, 146);
+    border-bottom: 1px solid rgb(142, 144, 146);
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 .single-result:hover{
     background-color: rgb(224, 242, 255);
 }
 
 .image-preview{
-    height: 150px;
-    width: 150px;
+    height: 140px;
+    width: 140px;
     background-size: cover;
     margin-right: 30px;
 }

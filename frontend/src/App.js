@@ -51,7 +51,7 @@ function App() {
           <Route path="/albums/:albumid">
             <AlbumDisplayPage />
           </Route>
-          <Route path="/search">
+          <Route path="/search/:querytype/:querystring">
             <SearchResults />
           </Route>
           <Route>
