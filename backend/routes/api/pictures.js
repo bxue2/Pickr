@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 
 const { requireAuth } = require('../../utils/auth');
 const { Picture, User, Tag, PictureTag } = require('../../db/models');
-
+const {Op} = require('sequelize');
 const {singlePublicFileUpload, singleMulterUpload, singlePublicFileDelete} = require('../../aswS3');
 
 const router = express.Router();
@@ -11,11 +11,18 @@ const router = express.Router();
 // GET /api/pictures/query
 //Pass in a query object for findAll, will return result
 router.get(
-  "/query",
+  "/query/name/:search",
   asyncHandler(async (req, res) => {
-    const {searchObj} = req.body
-    let pictures = await Picture.findAll(searchObj);
-    return res.json(JSON.stringify(pictures.toJSON()));
+    const {search} = req.params;
+    let pictures = await Picture.findAll({
+      where:{
+        name: {
+          [Op.iLike]: `%${search}%`
+        }
+      },
+      include: User
+    });
+    return res.json(JSON.stringify(pictures));
   })
 )
 

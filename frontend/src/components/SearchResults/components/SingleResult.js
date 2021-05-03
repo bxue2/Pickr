@@ -1,9 +1,9 @@
-const SingleResult = () => {
+const SingleResult = ({url, name, owner}) => {
     return (
         <div className='single-result'>
-            <div className='image-preview'/>
-            <div className='picture-name' />
-            <div className='picture-owner' />
+            <div className='image-preview' style={{backgroundImage: `url('${url}')`}}/>
+            <div className='picture-name'>{name}</div>
+            <div className='picture-owner'>{owner}</div>
         </div>
     )
 }

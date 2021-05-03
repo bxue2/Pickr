@@ -11,6 +11,7 @@ import ProfilePage from './components/ProfilePage';
 import CreateAlbumPage from './components/CreateAlbumPage';
 import AlbumDisplayPage from './components/AlbumDisplayPage';
 import HomePage from './components/HomePage';
+import SearchResults from './components/SearchResults';
 
 function App() {
   const dispatch = useDispatch();
@@ -49,6 +50,9 @@ function App() {
           </Route>
           <Route path="/albums/:albumid">
             <AlbumDisplayPage />
+          </Route>
+          <Route path="/search">
+            <SearchResults />
           </Route>
           <Route>
             <HomePage />
