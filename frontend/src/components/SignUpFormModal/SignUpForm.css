@@ -14,9 +14,13 @@
     cursor: pointer;
 }
 
+.error-list{
+    color: red;
+}
+
 .sign-up-form {
     border: 1px solid black;
-    height: 400px;
+    height: 450px;
     width: 300px;
     display: flex;
     padding: 40px;

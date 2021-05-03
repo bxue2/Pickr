@@ -40,7 +40,7 @@ const SignUpForm = () => {
             <h2>Sign Up for Pickr:</h2>
             <form onSubmit={submitHandler}>
                 <ul>
-                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                    {errors.map((error, idx) => <li className='error-list' key={idx}>{error}</li>)}
                 </ul>
                 <div className='signup-input-form-field'>
                     <label>
