@@ -127,7 +127,7 @@
 .image-info-right{
     display: flex;
     flex-direction: column;
-    background-color: darkkhaki;
+    background-color: rgb(215, 241, 233);
 }
 .black-line{
     height: 1px;
@@ -156,11 +156,15 @@
 
 .image-tag-container{
     border: 1px solid rgba(255, 249, 218, 0.8);
-    background-color: cornflowerblue;
-    height: 30px;
-    padding: 5px;
+    background-color: rgb(136, 179, 245);
+    height: 40px;
+    padding: 10px;
     margin-top: 7px;
     margin-right: 5px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-tag-container:hover{
