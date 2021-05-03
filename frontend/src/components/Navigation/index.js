@@ -19,6 +19,10 @@ const Navigation = ({isLoaded}) => {
         history.push('/');
     }
 
+    const uploadImageClick = () => {
+        history.push('/upload-image');
+    }
+
     const demoLogin = async () => {
         return dispatch(sessionActions.loginUser({credential: "Demo-lition", password: "password"}));
     }
@@ -27,10 +31,10 @@ const Navigation = ({isLoaded}) => {
         sessionLinks = (
             <>
                 <li>
-                    <Link className='upload-image-button' to='/upload-image'>
+                    <div className='upload-image-button' onClick={uploadImageClick}>
                         <i className="fas fa-image" />
                         Upload Image
-                    </Link>
+                    </div>
                 </li>
                 <li>
                     <ProfileButton user={sessionUser}/>

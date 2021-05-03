@@ -34,17 +34,21 @@ const ProfileButton = ( {user} ) => {
 
     return (
         <>
-            <button onClick={openMenu}>
+            <div className='profile-button' onClick={openMenu}>
                 <i className="far fa-address-card" />
                 Profile
-            </button>
+            </div>
             {showMenu && (
                 <div className="nav_profile-menu">
-                    <h3>Username: </h3>
-                    <Link to={`/users/${sessionUser.id}`}>{sessionUser.username}</Link>
-                    <h3>Email: </h3>
-                    <Link to={`/users/${sessionUser.id}`}>{sessionUser.email}</Link>
-                    <button onClick={logOut}>Log Out</button>
+                    <span>
+                        <h3>Username: </h3>
+                        <Link to={`/users/${sessionUser.id}`}>{sessionUser.username}</Link>
+                    </span>
+                    <span>
+                        <h3>Email: </h3>
+                        <Link to={`/users/${sessionUser.id}`}>{sessionUser.email}</Link>
+                    </span>
+                    <div className='logout-button' onClick={logOut}>Log Out</div>
                 </div>
             )}
         </>

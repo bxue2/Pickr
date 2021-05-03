@@ -42,7 +42,7 @@
 
 .nav_profile-menu {
     position: absolute;
-    height: 400px;
+    height: 180px;
     width: 250px;
     background-color: white;
     top: 60px;
@@ -50,11 +50,19 @@
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-    padding: 5px;
+    padding: 10px;
     margin-right: 40px;
 }
 
-.demo-user-button{
+.nav_profile-menu span{
+    margin-bottom: 15px;
+}
+
+.nav_profile-menu a{
+    color:rgb(0, 85, 124)
+}
+
+.demo-user-button, .upload-image-button, .profile-button{
     height: 30px;
     padding: 5px 5px;
     border: 3px solid rgb(64, 141, 177);
@@ -64,7 +72,23 @@
     align-items: center;
 }
 
-.demo-user-button:hover{
+.demo-user-button:hover, .upload-image-button:hover, .profile-button:hover{
+    border: 3px solid rgb(189, 91, 136);
+    cursor: pointer;
+}
+
+.logout-button{
+    height: 30px;
+    padding: 5px 5px;
+    margin-top: 20px;
+    border: 3px solid rgb(64, 141, 177);
+    background-color: rgb(210, 241, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-button:hover{
     border: 3px solid rgb(189, 91, 136);
     cursor: pointer;
 }
