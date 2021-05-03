@@ -17,7 +17,13 @@
     font-size: 25px;
     font-weight: 600;
     color: white;
-    text-shadow: 2px 2px black;
+    text-shadow: 1px 1px black;
+}
+
+.album-header_info p{
+    font-size: 16px;
+    color: white;
+    text-shadow: 1px 1px black;
 }
 
 .album-display-pictures{
