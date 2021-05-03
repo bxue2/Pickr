@@ -1,17 +1,28 @@
 import React from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from "../LoginFormModal";
 import SignUpFormModal from '../SignUpFormModal';
 import SearchBar from './SearchBar';
 import './Navigation.css'
 import AboutModal from '../AboutModal';
+import * as sessionActions from '../../store/session';
 
 const Navigation = ({isLoaded}) => {
     let sessionUser = useSelector(state => state.session.user);
     let history = useHistory();
+    const dispatch = useDispatch();
     let sessionLinks;
+
+    const logoClick = () => {
+        history.push('/');
+    }
+
+    const demoLogin = async () => {
+        return dispatch(sessionActions.loginUser({credential: "Demo-lition", password: "password"}));
+    }
+
     if(sessionUser){
         sessionLinks = (
             <>
@@ -37,12 +48,13 @@ const Navigation = ({isLoaded}) => {
                     <SignUpFormModal />
                     {/* <NavLink className='signup-button' to="signup">Sign Up</NavLink> */}
                 </li>
+                <li>
+                    <div className='demo-user-button' onClick={demoLogin}>
+                        Demo User
+                    </div>
+                </li>
             </>
         );
-    }
-
-    const logoClick = () => {
-        history.push('/');
     }
 
     return (
