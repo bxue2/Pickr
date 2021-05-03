@@ -122,6 +122,16 @@
     font-weight: 600;
 }
 
+.delete-comment-button{
+    color: red;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.first-line-span{
+    display: flex;
+    align-items: flex-end;
+}
+
 /* Info right sidebar */
 
 .image-info-right{

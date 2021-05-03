@@ -21,7 +21,7 @@ const CommentComponent = ({pictureid, username, setTotalComments}) => {
 
     return (
         <div className='comment-component'>
-            <CommentListComponent comments={comments} username={username}/>
+            <CommentListComponent comments={comments} setComments={setComments}/>
             <CommentInput comments={comments} setComments={setComments} pictureid={pictureid}/>
         </div>
     )
