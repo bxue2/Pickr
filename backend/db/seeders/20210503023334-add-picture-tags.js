@@ -31,6 +31,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('PictureTags', null, {});
+    return queryInterface.bulkDelete('PictureTags', null, {truncate: true, restartIdentity: true});
   }
 };

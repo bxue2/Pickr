@@ -19,6 +19,6 @@ module.exports = {
       Example:
 
     */
-      return queryInterface.bulkDelete('Albums', null, {});
+      return queryInterface.bulkDelete('Albums', null, {truncate: true, restartIdentity: true});
   }
 };

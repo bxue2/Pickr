@@ -24,7 +24,7 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Pictures', null, {});
+    return queryInterface.bulkDelete('Pictures', null, {truncate: true, restartIdentity: true});
     /*
       Add reverting commands here.
       Return a promise to correctly handle asynchronicity.

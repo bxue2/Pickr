@@ -2,7 +2,7 @@ const express = require('express')
 const asyncHandler = require('express-async-handler');
 
 const { requireAuth } = require('../../utils/auth');
-const { Comment } = require('../../db/models');
+const { Comment, User } = require('../../db/models');
 
 const router = express.Router();
 
@@ -11,13 +11,17 @@ router.get(
     "/:commentid",
     asyncHandler(async (req, res) => {
       const {commentid} = req.params;
-      let commentRow = await Comment.findByPk(commentid);
+      let commentRow = await Comment.findByPk(commentid, {
+        include: User
+      });
+      console.log("User", commentRow.User)
       if(commentRow){
         return res.json({
             comment: commentRow.comment,
             picture_id: commentRow.picture_id,
             user_id: commentRow.user_id,
-            created_at: comment.created_at
+            created_at: comment.created_at,
+            username: commentRow.User.username
           })
       }
       return res.status(400).send({
@@ -34,7 +38,8 @@ router.get("/picture/:pictureid",
       let comments = await Comment.findAll({
         where:{
           picture_id:pictureid
-        }
+        },
+        include: User
       });
       if(comments.length !== 0){
         return res.json(comments);

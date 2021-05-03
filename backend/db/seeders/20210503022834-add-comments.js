@@ -11,7 +11,7 @@ module.exports = {
       {
         comment: 'This picture sucks. >:(',
         picture_id: 1,
-        user_id: 2
+        user_id: 3
       },
       {
         comment: 'Hi.',
@@ -22,6 +22,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Comments', null, {});
+    return queryInterface.bulkDelete('Comments', null, {truncate: true, restartIdentity: true});
   }
 };
