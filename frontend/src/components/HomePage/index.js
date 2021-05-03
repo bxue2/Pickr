@@ -7,7 +7,7 @@ const HomePage = () => {
     let sessionUser = useSelector(state => state.session.user)
     const [bgImageId, setBgImageId] = useState(0);
     useEffect(() => {
-        setTimeout(() => {setBgImageId((bgImageId + 1)%3)}, 7000)
+        setTimeout(() => {setBgImageId((bgImageId + 1)%4)}, 6000)
     }, [bgImageId])
 
     if(sessionUser){

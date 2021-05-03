@@ -3,4 +3,5 @@
     width: 100%;
     background-size: cover;
     /* background-image: url('../../images/backgrounds/bg_1.jpg'); */
+    transition: background-image 1s;
 }
