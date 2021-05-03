@@ -12,7 +12,7 @@ import './ProfilePage.css';
 const ProfilePage = () => {
     // let sessionUser = useSelector(state => state.session.user)
     const [userData, setUserData] = useState({});
-    const [pageDisplay, setPageDisplay] = useState("about");
+    const [pageDisplay, setPageDisplay] = useState("pictures");
     const params = useParams();
     const [currentComponent, setCurrentComponent] = useState('');
 
