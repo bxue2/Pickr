@@ -8,8 +8,6 @@ import './SearchResults.css';
 const SearchResults = () => {
     const [pictures, setPictures] = useState([]);
     let {querytype, querystring} = useParams();
-    console.log(querytype);
-    console.log(querystring);
     useEffect(() => {
         async function fetchQuery(){
             if(querytype === 'name'){

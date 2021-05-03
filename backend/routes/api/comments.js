@@ -14,7 +14,6 @@ router.get(
       let commentRow = await Comment.findByPk(commentid, {
         include: User
       });
-      console.log("User", commentRow.User)
       if(commentRow){
         return res.json({
             comment: commentRow.comment,
