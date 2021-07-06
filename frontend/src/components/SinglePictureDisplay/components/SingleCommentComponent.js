@@ -1,11 +1,17 @@
+import {useState} from 'react'
 import {Link} from 'react-router-dom';
 import {convertToDate} from '../../../utils/DateTimeConvert';
 import {useSelector} from 'react-redux'
 import {csrfFetch} from '../../../store/csrf';
 const SingleCommentComponent = ({comments, setComments, comment}) => {
     let sessionUser = useSelector(state => state.session.user)
+    let [showEdit, setShowEdit] = useState(false);
 
-    const editComment = () => {
+    const editComment = async (e) => {
+        e.preventDefault();
+        await csrfFetch(`/api/comments/${comment.id}`, {
+            method: 'PATCH'
+        })
         return;
     }
 
@@ -28,7 +34,7 @@ const SingleCommentComponent = ({comments, setComments, comment}) => {
 
     let deleteButton = (
     <div className='comment-action-buttons'>
-        <div className='edit-comment-button' onClick={editComment}>
+        <div className='edit-comment-button' onClick={() => setShowEdit(true)}>
             <i className="fas fa-edit"></i>
         </div>
         <div className='delete-comment-button' onClick={deleteComment}>
@@ -46,7 +52,17 @@ const SingleCommentComponent = ({comments, setComments, comment}) => {
                 {sessionUser.id === comment.user_id && deleteButton}
             </span>
             <h3>{convertToDate(comment.createdAt)}</h3>
-            <p>{comment.comment}</p>
+            {!showEdit && (
+                <p>{comment.comment}</p>
+            )}
+            {showEdit && (
+                <form>
+                    <textarea></textarea>
+                    <button type='submit'>Submit</button>
+                    <button onClick={() => setShowEdit(false)}>Cancel</button>
+                </form>
+            )}
+
         </div>
     )
 }
