@@ -133,6 +133,12 @@
     margin-right: 10px;
 }
 
+.edit-comment-form{
+    display: flex;
+    flex-direction: column;
+}
+
+
 .delete-comment-button{
     color: red;
     cursor: pointer;

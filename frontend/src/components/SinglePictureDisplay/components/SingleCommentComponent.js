@@ -6,8 +6,10 @@ import {csrfFetch} from '../../../store/csrf';
 const SingleCommentComponent = ({comments, setComments, comment}) => {
     let sessionUser = useSelector(state => state.session.user)
     let [showEdit, setShowEdit] = useState(false);
+    let [editComment, setEditComment] = useState(comment.comment);
 
-    const editComment = async (e) => {
+
+    const suhbmitEditComment = async (e) => {
         e.preventDefault();
         await csrfFetch(`/api/comments/${comment.id}`, {
             method: 'PATCH'
@@ -56,10 +58,18 @@ const SingleCommentComponent = ({comments, setComments, comment}) => {
                 <p>{comment.comment}</p>
             )}
             {showEdit && (
-                <form>
-                    <textarea></textarea>
-                    <button type='submit'>Submit</button>
-                    <button onClick={() => setShowEdit(false)}>Cancel</button>
+                <form className='edit-comment-form'>
+                    <textarea
+                        value={editComment}
+                        onChange={(e) => setEditComment(e.target.value)}
+                    />
+                    <div className='edit-comment-button-div'>
+                        <button type='submit'>Submit</button>
+                        <button onClick={() => {
+                            setEditComment(comment.comment)
+                            setShowEdit(false)}
+                        }>Cancel</button>
+                    </div>
                 </form>
             )}
 
