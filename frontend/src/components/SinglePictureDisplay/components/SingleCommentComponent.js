@@ -5,6 +5,10 @@ import {csrfFetch} from '../../../store/csrf';
 const SingleCommentComponent = ({comments, setComments, comment}) => {
     let sessionUser = useSelector(state => state.session.user)
 
+    const editComment = () => {
+        return;
+    }
+
     const deleteComment = async (e) => {
         e.preventDefault();
         await csrfFetch(`/api/comments/${comment.id}`, {
@@ -23,9 +27,15 @@ const SingleCommentComponent = ({comments, setComments, comment}) => {
     }
 
     let deleteButton = (
-    <div className='delete-comment-button' onClick={deleteComment}>
+    <div className='comment-action-buttons'>
+        <div className='edit-comment-button' onClick={editComment}>
+            <i className="fas fa-edit"></i>
+        </div>
+        <div className='delete-comment-button' onClick={deleteComment}>
             <i className="far fa-trash-alt"></i>
-    </div>)
+        </div>
+    </div>
+    )
 
     return (
         <div className='single-comment-div'>
