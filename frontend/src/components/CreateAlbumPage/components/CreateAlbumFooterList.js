@@ -34,10 +34,7 @@ const CreateAlbumFooterList = ({unusedPictures, addedPictures, setAddedPictures}
     return (
         <div className='create-album-footer'>
             <div className='create-album-footer_actions'>
-                <form onSubmit={(e) => {e.preventDefault()}}>
-                    <input type='text' placeholder='Search (maybe?)'/>
-                    <button type='submit'>Search</button>
-                </form>
+                <p>Drag photos to add to album, drag back here to remove</p>
             </div>
             <div
                 className='create-album-footer_list'
@@ -57,7 +54,7 @@ const CreateAlbumFooterList = ({unusedPictures, addedPictures, setAddedPictures}
                                     e.dataTransfer.setData('text', JSON.stringify(transfer));
                                 }}
                                 onDragEnd={(e) => {
-                                    
+
                                 }}
                                 style={{
                                     backgroundImage: `url(${picture.image_url})`
