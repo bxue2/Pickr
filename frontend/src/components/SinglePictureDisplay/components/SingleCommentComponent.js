@@ -1,9 +1,27 @@
+import {useState} from 'react'
 import {Link} from 'react-router-dom';
 import {convertToDate} from '../../../utils/DateTimeConvert';
 import {useSelector} from 'react-redux'
 import {csrfFetch} from '../../../store/csrf';
 const SingleCommentComponent = ({comments, setComments, comment}) => {
     let sessionUser = useSelector(state => state.session.user)
+    let [currComment, setCurrComment] = useState(comment.comment)
+    let [showEdit, setShowEdit] = useState(false);
+    let [editComment, setEditComment] = useState(comment.comment);
+
+
+    const submitEditComment = async (e) => {
+        e.preventDefault();
+        await csrfFetch(`/api/comments/${comment.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({comment: editComment})
+        })
+        setCurrComment(editComment);
+        setShowEdit(false);
+    }
 
     const deleteComment = async (e) => {
         e.preventDefault();
@@ -23,9 +41,15 @@ const SingleCommentComponent = ({comments, setComments, comment}) => {
     }
 
     let deleteButton = (
-    <div className='delete-comment-button' onClick={deleteComment}>
+    <div className='comment-action-buttons'>
+        <div className='edit-comment-button' onClick={() => setShowEdit(true)}>
+            <i className="fas fa-edit"></i>
+        </div>
+        <div className='delete-comment-button' onClick={deleteComment}>
             <i className="far fa-trash-alt"></i>
-    </div>)
+        </div>
+    </div>
+    )
 
     return (
         <div className='single-comment-div'>
@@ -36,7 +60,25 @@ const SingleCommentComponent = ({comments, setComments, comment}) => {
                 {sessionUser.id === comment.user_id && deleteButton}
             </span>
             <h3>{convertToDate(comment.createdAt)}</h3>
-            <p>{comment.comment}</p>
+            {!showEdit && (
+                <p>{currComment}</p>
+            )}
+            {showEdit && (
+                <form className='edit-comment-form' onSubmit={(e) => submitEditComment(e)}>
+                    <textarea
+                        value={editComment}
+                        onChange={(e) => setEditComment(e.target.value)}
+                    />
+                    <div className='edit-comment-button-div'>
+                        <button type='submit'>Submit</button>
+                        <button onClick={() => {
+                            setEditComment(comment.comment)
+                            setShowEdit(false)}
+                        }>Cancel</button>
+                    </div>
+                </form>
+            )}
+
         </div>
     )
 }

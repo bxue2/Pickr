@@ -84,7 +84,7 @@ router.patch(
         if(commentRow && commentRow.user_id === user.id){
             await commentRow.update({comment});
             return res.status(200).send({
-                message: 'Successfully deleted comment.'
+                message: 'Successfully edited comment.'
               })
         } else{
             return res.status(401).send({

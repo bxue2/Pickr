@@ -122,10 +122,26 @@
     font-weight: 600;
 }
 
+.comment-action-buttons{
+    margin-left: 10px;
+    display: flex;
+}
+
+.edit-comment-button{
+    /* color: blue; */
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.edit-comment-form{
+    display: flex;
+    flex-direction: column;
+}
+
+
 .delete-comment-button{
     color: red;
     cursor: pointer;
-    margin-left: 10px;
 }
 .first-line-span{
     display: flex;
