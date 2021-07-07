@@ -5,16 +5,22 @@ import {useSelector} from 'react-redux'
 import {csrfFetch} from '../../../store/csrf';
 const SingleCommentComponent = ({comments, setComments, comment}) => {
     let sessionUser = useSelector(state => state.session.user)
+    let [currComment, setCurrComment] = useState(comment.comment)
     let [showEdit, setShowEdit] = useState(false);
     let [editComment, setEditComment] = useState(comment.comment);
 
 
-    const suhbmitEditComment = async (e) => {
+    const submitEditComment = async (e) => {
         e.preventDefault();
         await csrfFetch(`/api/comments/${comment.id}`, {
-            method: 'PATCH'
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({comment: editComment})
         })
-        return;
+        setCurrComment(editComment);
+        setShowEdit(false);
     }
 
     const deleteComment = async (e) => {
@@ -55,10 +61,10 @@ const SingleCommentComponent = ({comments, setComments, comment}) => {
             </span>
             <h3>{convertToDate(comment.createdAt)}</h3>
             {!showEdit && (
-                <p>{comment.comment}</p>
+                <p>{currComment}</p>
             )}
             {showEdit && (
-                <form className='edit-comment-form'>
+                <form className='edit-comment-form' onSubmit={(e) => submitEditComment(e)}>
                     <textarea
                         value={editComment}
                         onChange={(e) => setEditComment(e.target.value)}
