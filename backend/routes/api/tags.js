@@ -30,7 +30,7 @@ router.get(
           model: Tag,
           where:{
             name:{
-              [Op.iLike]: search
+              [Op.iLike]: '%' + search + '%'
             }
           }
         },
